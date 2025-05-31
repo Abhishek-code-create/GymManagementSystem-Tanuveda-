@@ -26,49 +26,58 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        textArea1 = new java.awt.TextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         txtfullname = new javax.swing.JTextField();
         textEmail = new javax.swing.JTextField();
         textnum = new javax.swing.JTextField();
-        textsecques = new javax.swing.JTextField();
-        textans = new javax.swing.JTextField();
         textpassword = new javax.swing.JPasswordField();
         textconpass = new javax.swing.JPasswordField();
+        jregisterbutton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 102));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("    ADMIN");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(660, 110, 135, 32);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("FullName");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(310, 210, 205, 32);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Email");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(310, 270, 205, 32);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setText("Password");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(310, 330, 205, 32);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setText("Confirm Password");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(310, 400, 209, 32);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setText("Phone Number");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel7.setText("Security Question");
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setText("Answer");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(310, 470, 205, 32);
 
         txtfullname.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         txtfullname.addActionListener(new java.awt.event.ActionListener() {
@@ -76,8 +85,12 @@ public class Admin extends javax.swing.JFrame {
                 txtfullnameActionPerformed(evt);
             }
         });
+        getContentPane().add(txtfullname);
+        txtfullname.setBounds(600, 210, 305, 38);
 
         textEmail.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        getContentPane().add(textEmail);
+        textEmail.setBounds(600, 270, 305, 38);
 
         textnum.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         textnum.addActionListener(new java.awt.event.ActionListener() {
@@ -85,10 +98,8 @@ public class Admin extends javax.swing.JFrame {
                 textnumActionPerformed(evt);
             }
         });
-
-        textsecques.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-
-        textans.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        getContentPane().add(textnum);
+        textnum.setBounds(600, 470, 305, 38);
 
         textpassword.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         textpassword.setText("jPasswordField1");
@@ -97,81 +108,63 @@ public class Admin extends javax.swing.JFrame {
                 textpasswordActionPerformed(evt);
             }
         });
+        getContentPane().add(textpassword);
+        textpassword.setBounds(600, 340, 305, 38);
 
         textconpass.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         textconpass.setText("jPasswordField2");
+        textconpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textconpassActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textconpass);
+        textconpass.setBounds(600, 400, 305, 38);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(541, 541, 541)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(433, 433, 433)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(3, 3, 3)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textnum)
-                                    .addComponent(textconpass)
-                                    .addComponent(txtfullname, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textEmail)
-                                    .addComponent(textpassword)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textans)
-                                    .addComponent(textsecques))))))
-                .addContainerGap(420, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jLabel1)
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtfullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(textpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(textconpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(textnum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(textsecques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(textans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(141, Short.MAX_VALUE))
-        );
+        jregisterbutton.setBackground(new java.awt.Color(51, 51, 255));
+        jregisterbutton.setForeground(new java.awt.Color(51, 0, 51));
+        jregisterbutton.setText("REGISTER");
+        jregisterbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jregisterbuttonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jregisterbutton);
+        jregisterbutton.setBounds(310, 560, 510, 40);
+
+        jButton2.setBackground(new java.awt.Color(0, 204, 255));
+        jButton2.setText("Save");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(310, 690, 100, 30);
+
+        jButton3.setBackground(new java.awt.Color(255, 102, 102));
+        jButton3.setText("Forget Password ");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(310, 620, 510, 40);
+
+        jButton4.setBackground(new java.awt.Color(255, 0, 51));
+        jButton4.setText("Exit");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(460, 690, 100, 30);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PopupIcon/Yellow and Black Modern Fitness Ad Instagram Post (1).png"))); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(0, 0, 1070, 1340);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,6 +180,35 @@ public class Admin extends javax.swing.JFrame {
     private void textpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textpasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textpasswordActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+   
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+     
+
+    
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void textconpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textconpassActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_textconpassActionPerformed
+
+    private void jregisterbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jregisterbuttonActionPerformed
+        // TODO add your handling code here:
+    
+    
+    }//GEN-LAST:event_jregisterbuttonActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,20 +246,22 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jregisterbutton;
+    private java.awt.TextArea textArea1;
     private javax.swing.JTextField textEmail;
-    private javax.swing.JTextField textans;
     private javax.swing.JPasswordField textconpass;
     private javax.swing.JTextField textnum;
     private javax.swing.JPasswordField textpassword;
-    private javax.swing.JTextField textsecques;
     private javax.swing.JTextField txtfullname;
     // End of variables declaration//GEN-END:variables
 }
