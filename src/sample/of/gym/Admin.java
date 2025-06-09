@@ -43,41 +43,37 @@ public class Admin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
-        getContentPane().setLayout(null);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("    ADMIN");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(660, 110, 135, 32);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 135, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("FullName");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(310, 210, 205, 32);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 205, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Email");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(310, 270, 205, 32);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 205, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setText("Password");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(310, 330, 205, 32);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 205, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setText("Confirm Password");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(310, 400, 209, 32);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 209, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setText("Phone Number");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(310, 470, 205, 32);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 205, -1));
 
         txtfullname.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         txtfullname.addActionListener(new java.awt.event.ActionListener() {
@@ -85,12 +81,10 @@ public class Admin extends javax.swing.JFrame {
                 txtfullnameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtfullname);
-        txtfullname.setBounds(600, 210, 305, 38);
+        getContentPane().add(txtfullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 305, -1));
 
         textEmail.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        getContentPane().add(textEmail);
-        textEmail.setBounds(600, 270, 305, 38);
+        getContentPane().add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 305, -1));
 
         textnum.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         textnum.addActionListener(new java.awt.event.ActionListener() {
@@ -98,8 +92,7 @@ public class Admin extends javax.swing.JFrame {
                 textnumActionPerformed(evt);
             }
         });
-        getContentPane().add(textnum);
-        textnum.setBounds(600, 470, 305, 38);
+        getContentPane().add(textnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 305, -1));
 
         textpassword.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         textpassword.setText("jPasswordField1");
@@ -108,8 +101,7 @@ public class Admin extends javax.swing.JFrame {
                 textpasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(textpassword);
-        textpassword.setBounds(600, 340, 305, 38);
+        getContentPane().add(textpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, 305, -1));
 
         textconpass.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         textconpass.setText("jPasswordField2");
@@ -118,8 +110,7 @@ public class Admin extends javax.swing.JFrame {
                 textconpassActionPerformed(evt);
             }
         });
-        getContentPane().add(textconpass);
-        textconpass.setBounds(600, 400, 305, 38);
+        getContentPane().add(textconpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 305, -1));
 
         jregisterbutton.setBackground(new java.awt.Color(51, 51, 255));
         jregisterbutton.setForeground(new java.awt.Color(51, 0, 51));
@@ -129,8 +120,7 @@ public class Admin extends javax.swing.JFrame {
                 jregisterbuttonActionPerformed(evt);
             }
         });
-        getContentPane().add(jregisterbutton);
-        jregisterbutton.setBounds(310, 560, 510, 40);
+        getContentPane().add(jregisterbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 560, 510, 40));
 
         jButton2.setBackground(new java.awt.Color(0, 204, 255));
         jButton2.setText("Save");
@@ -139,8 +129,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(310, 690, 100, 30);
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 690, 100, 30));
 
         jButton3.setBackground(new java.awt.Color(255, 102, 102));
         jButton3.setText("Forget Password ");
@@ -149,8 +138,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(310, 620, 510, 40);
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 620, 510, 40));
 
         jButton4.setBackground(new java.awt.Color(255, 0, 51));
         jButton4.setText("Exit");
@@ -159,12 +147,13 @@ public class Admin extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4);
-        jButton4.setBounds(460, 690, 100, 30);
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 690, 100, 30));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PopupIcon/Yellow and Black Modern Fitness Ad Instagram Post (1).png"))); // NOI18N
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(0, 0, 1070, 1340);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Yellow and Black Modern Fitness Ad Instagram Post (1).png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 1340));
+
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,6 +244,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jregisterbutton;
     private java.awt.TextArea textArea1;
