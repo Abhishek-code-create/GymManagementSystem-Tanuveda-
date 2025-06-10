@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package sample.of.gym;
+package GymManagementSystem.view;
 
 /**
  *
@@ -40,7 +40,6 @@ public class Admin extends javax.swing.JFrame {
         textconpass = new javax.swing.JPasswordField();
         jregisterbutton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -84,6 +83,11 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().add(txtfullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 305, -1));
 
         textEmail.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        textEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textEmailActionPerformed(evt);
+            }
+        });
         getContentPane().add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 305, -1));
 
         textnum.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -95,7 +99,6 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().add(textnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 305, -1));
 
         textpassword.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        textpassword.setText("jPasswordField1");
         textpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textpasswordActionPerformed(evt);
@@ -129,16 +132,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 690, 100, 30));
-
-        jButton3.setBackground(new java.awt.Color(255, 102, 102));
-        jButton3.setText("Forget Password ");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 620, 510, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 650, 100, 30));
 
         jButton4.setBackground(new java.awt.Color(255, 0, 51));
         jButton4.setText("Exit");
@@ -147,7 +141,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 690, 100, 30));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 650, 100, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Yellow and Black Modern Fitness Ad Instagram Post (1).png"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 1340));
@@ -171,18 +165,28 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_textpasswordActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-   
+        // TODO add your handling code here:                                       
+    try {
+        String fullname = txtfullname.getText();
+        String email = textEmail.getText();
+        String phone = textnum.getText();
+        String password = new String(textpassword.getPassword());
+
+        try (java.io.FileWriter writer = new java.io.FileWriter("admin_data.txt", true) // append mode
+        ) {
+            writer.write(fullname + "," + email + "," + phone + "," + password + "\n");
+        }
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Data saved successfully!", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Error saving data: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+
+
+  
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-     
-
-    
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void textconpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textconpassActionPerformed
         // TODO add your handling code here:
@@ -190,14 +194,63 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_textconpassActionPerformed
 
     private void jregisterbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jregisterbuttonActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:                                                
+    String fullname = txtfullname.getText();
+    String email = textEmail.getText();
+    String phone = textnum.getText();
+    String password = new String(textpassword.getPassword());
+    String confirmPassword = new String(textconpass.getPassword());
+
+    if(fullname.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()){
+        javax.swing.JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    if(!password.equals(confirmPassword)){
+        javax.swing.JOptionPane.showMessageDialog(this, "Passwords do not match.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // You can add more validation here (email format, phone number format etc.)
+
+    javax.swing.JOptionPane.showMessageDialog(this, "Registration Successful!", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+    // Optionally, clear the fields after successful registration
+    txtfullname.setText("");
+    textEmail.setText("");
+    textnum.setText("");
+    textpassword.setText("");
+    textconpass.setText("");
+
+
     
+
     
     }//GEN-LAST:event_jregisterbuttonActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:                                         
+    int choice = javax.swing.JOptionPane.showConfirmDialog(this, 
+        "Do you want to go to the login page?", 
+        "Confirm", 
+        javax.swing.JOptionPane.YES_NO_OPTION);
+
+    if (choice == javax.swing.JOptionPane.YES_OPTION) {
+        this.dispose();  // Close current Admin window
+
+        // Open the Login window
+        // Assuming your login JFrame class is called 'Login'
+        Login loginPage = new Login();
+        loginPage.setVisible(true);
+    }
+
+
+
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,6 +281,7 @@ public class Admin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Admin().setVisible(true);
             }
@@ -236,7 +290,6 @@ public class Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -255,3 +308,5 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField txtfullname;
     // End of variables declaration//GEN-END:variables
 }
+
+
