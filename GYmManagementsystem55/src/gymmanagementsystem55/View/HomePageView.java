@@ -10,6 +10,7 @@ import java.awt.CardLayout;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.awt.BasicStroke;
+import javax.swing.SpinnerDateModel;
 
 public class HomePageView extends JFrame {
     private JButton getStartedButton;
@@ -237,62 +238,89 @@ public class HomePageView extends JFrame {
 
         JPanel plansPanel = new JPanel();
         plansPanel.setBackground(new Color(245, 247, 251));
-        plansPanel.setLayout(new java.awt.GridLayout(1, 3, 30, 0));
+        plansPanel.setLayout(new BoxLayout(plansPanel, BoxLayout.X_AXIS));
         plansPanel.setBorder(new EmptyBorder(20, 40, 40, 40));
+        plansPanel.add(Box.createHorizontalGlue());
+
+        Dimension cardSize = new Dimension(320, 480);
+        Dimension buttonSize = new Dimension(180, 44);
+
+        // Helper for feature list
+        java.util.function.Function<String[], JPanel> featureList = features -> {
+            JPanel list = new JPanel();
+            list.setBackground(null);
+            list.setLayout(new BoxLayout(list, BoxLayout.Y_AXIS));
+            list.setAlignmentX(Component.CENTER_ALIGNMENT);
+            for (String f : features) {
+                JLabel l = new JLabel("• " + f);
+                l.setFont(new Font("Montserrat", Font.PLAIN, 15));
+                l.setAlignmentX(Component.CENTER_ALIGNMENT);
+                l.setHorizontalAlignment(SwingConstants.CENTER);
+                l.setBorder(new EmptyBorder(0, 0, 0, 0));
+                list.add(l);
+            }
+            return list;
+        };
 
         // BASIC PLAN
         JPanel basicPanel = new JPanel();
         basicPanel.setBackground(new Color(252, 254, 255));
-        basicPanel.setBorder(BorderFactory.createDashedBorder(new Color(120, 140, 170), 2, 6));
+        basicPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createDashedBorder(new Color(120, 140, 170), 2, 6),
+            new EmptyBorder(24, 24, 24, 24)));
         basicPanel.setLayout(new BoxLayout(basicPanel, BoxLayout.Y_AXIS));
-        basicPanel.setPreferredSize(new Dimension(300, 420));
+        basicPanel.setPreferredSize(cardSize);
+        basicPanel.setMaximumSize(cardSize);
+        basicPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+        basicPanel.add(Box.createVerticalStrut(8));
         JLabel basicTitle = new JLabel("BASIC");
         basicTitle.setFont(new Font("Montserrat", Font.BOLD, 28));
         basicTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JLabel basicDesc = new JLabel("Perfect for newcomers and beginers!!");
+        basicPanel.add(basicTitle);
+        basicPanel.add(Box.createVerticalStrut(8));
+        JLabel basicDesc = new JLabel("Perfect for newcomers and beginners!!");
         basicDesc.setFont(new Font("Montserrat", Font.PLAIN, 15));
         basicDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
+        basicPanel.add(basicDesc);
+        basicPanel.add(Box.createVerticalStrut(18));
         JLabel basicPrice = new JLabel("NPR 3500");
         basicPrice.setFont(new Font("Montserrat", Font.BOLD, 32));
         basicPrice.setAlignmentX(Component.CENTER_ALIGNMENT);
+        basicPanel.add(basicPrice);
         JLabel basicPer = new JLabel("/PER MONTH");
         basicPer.setFont(new Font("Montserrat", Font.PLAIN, 14));
         basicPer.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JPanel basicList = new JPanel();
-        basicList.setBackground(new Color(252, 254, 255));
-        basicList.setLayout(new BoxLayout(basicList, BoxLayout.Y_AXIS));
-        basicList.add(new JLabel("• Full GYM access"));
-        basicList.add(new JLabel("• Free induction session"));
-        basicList.add(new JLabel("• Locker facility"));
-        for (Component c : basicList.getComponents()) {
-            c.setFont(new Font("Montserrat", Font.PLAIN, 15));
-            ((JLabel)c).setAlignmentX(Component.LEFT_ALIGNMENT);
-        }
+        basicPanel.add(basicPer);
+        basicPanel.add(Box.createVerticalStrut(18));
+        basicPanel.add(featureList.apply(new String[]{
+            "Full GYM access",
+            "Free induction session",
+            "Locker facility"
+        }));
+        basicPanel.add(Box.createVerticalGlue());
         JButton basicBtn = new JButton("Get Started");
         basicBtn.setBackground(new Color(30, 38, 54));
         basicBtn.setForeground(Color.WHITE);
         basicBtn.setFont(new Font("Montserrat", Font.BOLD, 18));
         basicBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         basicBtn.setBorder(BorderFactory.createEmptyBorder(10, 30, 10, 30));
+        basicBtn.setMaximumSize(buttonSize);
+        basicBtn.setPreferredSize(buttonSize);
         basicBtn.addActionListener(e -> showEsewaPopup());
-        basicPanel.add(Box.createVerticalStrut(18));
-        basicPanel.add(basicTitle);
-        basicPanel.add(Box.createVerticalStrut(8));
-        basicPanel.add(basicDesc);
-        basicPanel.add(Box.createVerticalStrut(18));
-        basicPanel.add(basicPrice);
-        basicPanel.add(basicPer);
-        basicPanel.add(Box.createVerticalStrut(18));
-        basicPanel.add(basicList);
         basicPanel.add(Box.createVerticalStrut(18));
         basicPanel.add(basicBtn);
 
         // STANDARD PLAN
         JPanel standardPanel = new JPanel();
         standardPanel.setBackground(new Color(255, 245, 247));
-        standardPanel.setBorder(BorderFactory.createDashedBorder(new Color(230, 57, 89), 2, 6));
+        standardPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createDashedBorder(new Color(230, 57, 89), 2, 6),
+            new EmptyBorder(24, 24, 24, 24)));
         standardPanel.setLayout(new BoxLayout(standardPanel, BoxLayout.Y_AXIS));
-        standardPanel.setPreferredSize(new Dimension(300, 420));
+        standardPanel.setPreferredSize(cardSize);
+        standardPanel.setMaximumSize(cardSize);
+        standardPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+        standardPanel.add(Box.createVerticalStrut(8));
         JPanel mostPopular = new JPanel();
         mostPopular.setBackground(new Color(230, 57, 89));
         JLabel mostPopularLabel = new JLabel("Most Popular");
@@ -301,99 +329,99 @@ public class HomePageView extends JFrame {
         mostPopular.add(mostPopularLabel);
         mostPopular.setAlignmentX(Component.CENTER_ALIGNMENT);
         mostPopular.setMaximumSize(new Dimension(140, 28));
-        standardPanel.add(Box.createVerticalStrut(8));
         standardPanel.add(mostPopular);
+        standardPanel.add(Box.createVerticalStrut(8));
         JLabel standardTitle = new JLabel("STANDARD");
         standardTitle.setFont(new Font("Montserrat", Font.BOLD, 28));
         standardTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JLabel standardDesc = new JLabel("Ideal for  regular fitness enthusiasts");
+        standardPanel.add(standardTitle);
+        standardPanel.add(Box.createVerticalStrut(8));
+        JLabel standardDesc = new JLabel("Ideal for regular fitness enthusiasts");
         standardDesc.setFont(new Font("Montserrat", Font.PLAIN, 15));
         standardDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
+        standardPanel.add(standardDesc);
+        standardPanel.add(Box.createVerticalStrut(18));
         JLabel standardPrice = new JLabel("NPR 5000");
         standardPrice.setFont(new Font("Montserrat", Font.BOLD, 32));
         standardPrice.setAlignmentX(Component.CENTER_ALIGNMENT);
+        standardPanel.add(standardPrice);
         JLabel standardPer = new JLabel("/PER MONTH");
         standardPer.setFont(new Font("Montserrat", Font.PLAIN, 14));
         standardPer.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JPanel standardList = new JPanel();
-        standardList.setBackground(new Color(255, 245, 247));
-        standardList.setLayout(new BoxLayout(standardList, BoxLayout.Y_AXIS));
-        standardList.add(new JLabel("• Everything in BASIC"));
-        standardList.add(new JLabel("• 2 Group Classes / week"));
-        standardList.add(new JLabel("• Diet Consultation"));
-        for (Component c : standardList.getComponents()) {
-            c.setFont(new Font("Montserrat", Font.PLAIN, 15));
-            ((JLabel)c).setAlignmentX(Component.LEFT_ALIGNMENT);
-        }
+        standardPanel.add(standardPer);
+        standardPanel.add(Box.createVerticalStrut(18));
+        standardPanel.add(featureList.apply(new String[]{
+            "Everything in BASIC",
+            "2 Group Classes / week",
+            "Diet Consultation"
+        }));
+        standardPanel.add(Box.createVerticalGlue());
         JButton standardBtn = new JButton("Get Started");
         standardBtn.setBackground(new Color(230, 57, 89));
         standardBtn.setForeground(Color.WHITE);
         standardBtn.setFont(new Font("Montserrat", Font.BOLD, 18));
         standardBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         standardBtn.setBorder(BorderFactory.createEmptyBorder(10, 30, 10, 30));
+        standardBtn.setMaximumSize(buttonSize);
+        standardBtn.setPreferredSize(buttonSize);
         standardBtn.addActionListener(e -> showEsewaPopup());
-        standardPanel.add(Box.createVerticalStrut(8));
-        standardPanel.add(standardTitle);
-        standardPanel.add(Box.createVerticalStrut(8));
-        standardPanel.add(standardDesc);
-        standardPanel.add(Box.createVerticalStrut(18));
-        standardPanel.add(standardPrice);
-        standardPanel.add(standardPer);
-        standardPanel.add(Box.createVerticalStrut(18));
-        standardPanel.add(standardList);
         standardPanel.add(Box.createVerticalStrut(18));
         standardPanel.add(standardBtn);
 
         // PREMIUM PLAN
         JPanel premiumPanel = new JPanel();
         premiumPanel.setBackground(new Color(252, 254, 255));
-        premiumPanel.setBorder(BorderFactory.createDashedBorder(new Color(120, 140, 170), 2, 6));
+        premiumPanel.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createDashedBorder(new Color(120, 140, 170), 2, 6),
+            new EmptyBorder(24, 24, 24, 24)));
         premiumPanel.setLayout(new BoxLayout(premiumPanel, BoxLayout.Y_AXIS));
-        premiumPanel.setPreferredSize(new Dimension(300, 420));
+        premiumPanel.setPreferredSize(cardSize);
+        premiumPanel.setMaximumSize(cardSize);
+        premiumPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+        premiumPanel.add(Box.createVerticalStrut(8));
         JLabel premiumTitle = new JLabel("PREMIUM");
         premiumTitle.setFont(new Font("Montserrat", Font.BOLD, 28));
         premiumTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JLabel premiumDesc = new JLabel("Ideal for  regular fitness enthusiasts");
+        premiumPanel.add(premiumTitle);
+        premiumPanel.add(Box.createVerticalStrut(8));
+        JLabel premiumDesc = new JLabel("Ideal for regular fitness enthusiasts");
         premiumDesc.setFont(new Font("Montserrat", Font.PLAIN, 15));
         premiumDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
+        premiumPanel.add(premiumDesc);
+        premiumPanel.add(Box.createVerticalStrut(18));
         JLabel premiumPrice = new JLabel("NPR 7000");
         premiumPrice.setFont(new Font("Montserrat", Font.BOLD, 32));
         premiumPrice.setAlignmentX(Component.CENTER_ALIGNMENT);
+        premiumPanel.add(premiumPrice);
         JLabel premiumPer = new JLabel("/PER MONTH");
         premiumPer.setFont(new Font("Montserrat", Font.PLAIN, 14));
         premiumPer.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JPanel premiumList = new JPanel();
-        premiumList.setBackground(new Color(252, 254, 255));
-        premiumList.setLayout(new BoxLayout(premiumList, BoxLayout.Y_AXIS));
-        premiumList.add(new JLabel("• Everything in STANDARD"));
-        premiumList.add(new JLabel("• Unlimited Classes"));
-        premiumList.add(new JLabel("• Personal Trainer/Sauna"));
-        for (Component c : premiumList.getComponents()) {
-            c.setFont(new Font("Montserrat", Font.PLAIN, 15));
-            ((JLabel)c).setAlignmentX(Component.LEFT_ALIGNMENT);
-        }
+        premiumPanel.add(premiumPer);
+        premiumPanel.add(Box.createVerticalStrut(18));
+        premiumPanel.add(featureList.apply(new String[]{
+            "Everything in STANDARD",
+            "Unlimited Classes",
+            "Personal Trainer/Sauna"
+        }));
+        premiumPanel.add(Box.createVerticalGlue());
         JButton premiumBtn = new JButton("Get Started");
         premiumBtn.setBackground(new Color(30, 38, 54));
         premiumBtn.setForeground(Color.WHITE);
         premiumBtn.setFont(new Font("Montserrat", Font.BOLD, 18));
         premiumBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         premiumBtn.setBorder(BorderFactory.createEmptyBorder(10, 30, 10, 30));
+        premiumBtn.setMaximumSize(buttonSize);
+        premiumBtn.setPreferredSize(buttonSize);
         premiumBtn.addActionListener(e -> showEsewaPopup());
-        premiumPanel.add(Box.createVerticalStrut(18));
-        premiumPanel.add(premiumTitle);
-        premiumPanel.add(Box.createVerticalStrut(8));
-        premiumPanel.add(premiumDesc);
-        premiumPanel.add(Box.createVerticalStrut(18));
-        premiumPanel.add(premiumPrice);
-        premiumPanel.add(premiumPer);
-        premiumPanel.add(Box.createVerticalStrut(18));
-        premiumPanel.add(premiumList);
         premiumPanel.add(Box.createVerticalStrut(18));
         premiumPanel.add(premiumBtn);
 
         plansPanel.add(basicPanel);
+        plansPanel.add(Box.createHorizontalStrut(30));
         plansPanel.add(standardPanel);
+        plansPanel.add(Box.createHorizontalStrut(30));
         plansPanel.add(premiumPanel);
+        plansPanel.add(Box.createHorizontalGlue());
         pricingCard.add(plansPanel);
 
         // ABOUT CARD
@@ -573,28 +601,113 @@ public class HomePageView extends JFrame {
     public JButton getGetStartedButton() { return getStartedButton; }
     public JButton getSignInButton() { return signInButton; }
 
-    // Helper method to show Esewa.jpg in a popup
+    // Helper method to show EsewaC.jpg in a custom popup
     private void showEsewaPopup() {
+        JDialog dialog = new JDialog(this, "Esewa Payment", true);
+        dialog.setSize(444, 539); // 60% of 740x899
+        dialog.setResizable(false);
+        dialog.setLocationRelativeTo(this);
+        JPanel content = new JPanel();
+        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+        content.setBackground(Color.WHITE);
+        content.setBorder(new EmptyBorder(16, 16, 16, 16));
+
+        // Load and add the image
         try {
             BufferedImage esewaImg = null;
-            java.net.URL esewaUrl = getClass().getResource("/Imagepicker/Esewa.jpg");
+            java.net.URL esewaUrl = getClass().getResource("/Imagepicker/esewaC.jpg");
             if (esewaUrl != null) {
                 esewaImg = ImageIO.read(esewaUrl);
             } else {
-                java.io.InputStream is = getClass().getResourceAsStream("/Imagepicker/Esewa.jpg");
+                java.io.InputStream is = getClass().getResourceAsStream("/Imagepicker/esewaC.jpg");
                 if (is != null) esewaImg = ImageIO.read(is);
             }
             if (esewaImg != null) {
-                int width = (int)(751 * 0.65); // 488
-                int height = (int)(1363 * 0.65); // 886
-                Image scaled = esewaImg.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                int imgW = 400, imgH = (int)(esewaImg.getHeight() * (400.0 / esewaImg.getWidth()));
+                Image scaled = esewaImg.getScaledInstance(imgW, imgH, Image.SCALE_SMOOTH);
                 JLabel imgLabel = new JLabel(new ImageIcon(scaled));
-                JOptionPane.showMessageDialog(this, imgLabel, "Esewa Payment", JOptionPane.PLAIN_MESSAGE);
+                imgLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                content.add(imgLabel);
             } else {
-                JOptionPane.showMessageDialog(this, "Esewa.jpg not found!", "Error", JOptionPane.ERROR_MESSAGE);
+                JLabel imgLabel = new JLabel("[esewaC.jpg not found]");
+                imgLabel.setForeground(Color.RED);
+                imgLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                content.add(imgLabel);
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Failed to load Esewa.jpg!", "Error", JOptionPane.ERROR_MESSAGE);
+            JLabel imgLabel = new JLabel("[Failed to load esewaC.jpg]");
+            imgLabel.setForeground(Color.RED);
+            imgLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            content.add(imgLabel);
         }
+
+        content.add(Box.createVerticalStrut(18));
+
+        // Phone number input
+        JLabel numberLabel = new JLabel("Esewa Phone Number (10 digits):");
+        numberLabel.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        numberLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JTextField numberField = new JTextField();
+        numberField.setMaximumSize(new Dimension(300, 32));
+        numberField.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        numberField.setHorizontalAlignment(JTextField.CENTER);
+        content.add(numberLabel);
+        content.add(Box.createVerticalStrut(6));
+        content.add(numberField);
+        content.add(Box.createVerticalStrut(14));
+
+        // Transaction date input (modern: date picker)
+        JLabel dateLabel = new JLabel("Transaction Date:");
+        dateLabel.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        dateLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        content.add(dateLabel);
+        content.add(Box.createVerticalStrut(6));
+
+        // Use JSpinner as a date picker (since no external picker is detected)
+        SpinnerDateModel dateModel = new SpinnerDateModel();
+        JSpinner dateSpinner = new JSpinner(dateModel);
+        dateSpinner.setMaximumSize(new Dimension(180, 32));
+        dateSpinner.setFont(new Font("Montserrat", Font.PLAIN, 15));
+        JSpinner.DateEditor dateEditor = new JSpinner.DateEditor(dateSpinner, "dd/MM/yyyy");
+        dateSpinner.setEditor(dateEditor);
+        ((JSpinner.DefaultEditor)dateSpinner.getEditor()).getTextField().setHorizontalAlignment(JTextField.CENTER);
+        content.add(dateSpinner);
+        content.add(Box.createVerticalStrut(18));
+
+        // Submit button
+        JButton submitBtn = new JButton("Submit");
+        submitBtn.setFont(new Font("Montserrat", Font.BOLD, 16));
+        submitBtn.setBackground(new Color(230, 57, 89));
+        submitBtn.setForeground(Color.WHITE);
+        submitBtn.setFocusPainted(false);
+        submitBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        submitBtn.setMaximumSize(new Dimension(140, 36));
+        content.add(submitBtn);
+
+        // Validation and action
+        submitBtn.addActionListener(e -> {
+            String number = numberField.getText().trim();
+            java.util.Date selectedDate = (java.util.Date) dateSpinner.getValue();
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+            String formattedDate = sdf.format(selectedDate);
+            if (!number.matches("\\d{10}")) {
+                JOptionPane.showMessageDialog(dialog, "Please enter a valid 10-digit Esewa phone number.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            // Optionally, check if the date is not in the future
+            java.util.Date today = new java.util.Date();
+            if (selectedDate.after(today)) {
+                JOptionPane.showMessageDialog(dialog, "Transaction date cannot be in the future.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            JOptionPane.showMessageDialog(dialog, "Payment details submitted!\nDate: " + formattedDate, "Success", JOptionPane.INFORMATION_MESSAGE);
+            dialog.dispose();
+        });
+
+        JScrollPane scrollPane = new JScrollPane(content, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        scrollPane.setBorder(null);
+        dialog.setContentPane(scrollPane);
+        dialog.setVisible(true);
     }
 } 
