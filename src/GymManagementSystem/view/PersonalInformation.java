@@ -15,13 +15,16 @@ import java.awt.Image;
  */
 public class PersonalInformation extends javax.swing.JFrame {
 
+   private javax.swing.JLabel profileLabel;
+
+
     /**
      * Creates new form PersonalInformation
      */
     public PersonalInformation() {
-        initComponents();
-    }
-
+    initComponents();
+    profileLabel = jLabel15; 
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -164,6 +167,12 @@ public class PersonalInformation extends javax.swing.JFrame {
         });
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 580, 40));
         jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 290, 40));
+
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 260, 40));
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -234,7 +243,26 @@ public class PersonalInformation extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:                                      
+    String fullName = jTextField4.getText();
+    String email = jTextField3.getText();
+    String phone = jTextField5.getText();
+    String dob = jTextField1.getText();
+    String gender = jTextField6.getText();
+    String address = jTextField7.getText();
+    String emergencyContact = jTextField2.getText();
+
+    // Simple validation
+    if (fullName.isEmpty() || email.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Full Name and Email are required.", "Input Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Show confirmation
+    JOptionPane.showMessageDialog(this, "Changes saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+
+   
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -256,9 +284,21 @@ public class PersonalInformation extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    
+        // TODO add your handling code here:                                                                              
+    ImageIcon icon = new ImageIcon("src/images/success.png"); // Path to your icon image
+
+    JOptionPane.showMessageDialog(this, "Login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE, icon);
+    Dashboard dashboardFrame = new Dashboard();  
+    dashboardFrame.setVisible(true);
+    this.dispose(); // Close current window
+
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,3 +367,4 @@ public class PersonalInformation extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }
+
