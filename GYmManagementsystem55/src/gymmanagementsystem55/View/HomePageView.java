@@ -530,19 +530,183 @@ public class HomePageView extends JFrame {
         aboutCard.add(aboutMainPanel);
 
         // SIGN IN CARD
-        JPanel signInCard = new JPanel();
-        signInCard.setBackground(new Color(245, 245, 250));
-        signInCard.setBorder(new EmptyBorder(60, 60, 60, 60));
-        signInCard.setLayout(new BoxLayout(signInCard, BoxLayout.Y_AXIS));
-        JLabel signInTitle = new JLabel("Sign In");
-        signInTitle.setFont(new Font("Montserrat", Font.BOLD, 32));
-        signInTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        signInCard.add(signInTitle);
-        signInCard.add(Box.createVerticalStrut(20));
-        JLabel signInDesc = new JLabel("<html><div style='text-align:center;width:400px;'>Sign in to access your account. (Placeholder)</div></html>");
-        signInDesc.setFont(new Font("Montserrat", Font.PLAIN, 18));
-        signInDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
-        signInCard.add(signInDesc);
+        JPanel signInCard = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Draw background image (optional: replace with your own image path)
+                try {
+                    BufferedImage bgImg = null;
+                    java.net.URL bgUrl = getClass().getResource("/Imagepicker/gym_bg.jpg");
+                    if (bgUrl != null) {
+                        bgImg = ImageIO.read(bgUrl);
+                    } else {
+                        java.io.InputStream is = getClass().getResourceAsStream("/Imagepicker/gym_bg.jpg");
+                        if (is != null) bgImg = ImageIO.read(is);
+                    }
+                    if (bgImg != null) {
+                        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
+                        // Draw semi-transparent overlay
+                        Graphics2D g2 = (Graphics2D) g;
+                        g2.setColor(new Color(255,255,255,180));
+                        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40);
+                    }
+                } catch (Exception ex) {
+                    // fallback: do nothing
+                }
+            }
+        };
+        signInCard.setOpaque(false);
+        signInCard.setLayout(null);
+
+        int cardW = 1200, cardH = 700;
+        int boxW = 200, boxH = 200, boxGap = 80;
+        int totalBoxW = boxW * 2 + boxGap;
+        int centerX = (cardW - totalBoxW) / 2;
+        int centerY = 220;
+
+        JLabel chooseLabel = new JLabel("Choose your role: Admin or User.");
+        chooseLabel.setFont(new Font("Montserrat", Font.BOLD | Font.ITALIC, 32));
+        chooseLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        chooseLabel.setForeground(Color.BLACK);
+        chooseLabel.setBounds(0, 60, cardW, 50);
+        signInCard.add(chooseLabel);
+
+        // Admin Panel with hover effect
+        final boolean[] adminHovered = {false};
+        JPanel adminPanel = new JPanel() {
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(adminHovered[0] ? new Color(220, 220, 220, 255) : new Color(240, 240, 240, 230));
+                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 36, 36);
+                if (adminHovered[0]) {
+                    g2.setColor(new Color(180, 180, 180, 120));
+                    g2.setStroke(new BasicStroke(4f));
+                    g2.drawRoundRect(2, 2, getWidth()-4, getHeight()-4, 36, 36);
+                } else {
+                    g2.setColor(new Color(200, 200, 200, 80));
+                    g2.setStroke(new BasicStroke(2f));
+                    g2.drawRoundRect(2, 2, getWidth()-4, getHeight()-4, 36, 36);
+                }
+                g2.dispose();
+                super.paintComponent(g);
+            }
+        };
+        adminPanel.setOpaque(false);
+        adminPanel.setBounds(centerX, centerY, boxW, boxH);
+        adminPanel.setLayout(new BorderLayout());
+        JLabel adminLabel = new JLabel("Admin", SwingConstants.CENTER);
+        adminLabel.setFont(new Font("Montserrat", Font.BOLD, 28));
+        adminPanel.add(adminLabel, BorderLayout.CENTER);
+        adminPanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        adminPanel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(signInCard, "Admin clicked!");
+            }
+            public void mouseEntered(MouseEvent e) {
+                adminPanel.setBackground(new Color(220, 220, 220, 255));
+                adminPanel.getRootPane().repaint();
+                adminHovered[0] = true;
+                adminPanel.repaint();
+            }
+            public void mouseExited(MouseEvent e) {
+                adminPanel.setBackground(new Color(240, 240, 240, 230));
+                adminPanel.getRootPane().repaint();
+                adminHovered[0] = false;
+                adminPanel.repaint();
+            }
+        });
+        signInCard.add(adminPanel);
+
+        // User Panel with hover effect
+        final boolean[] userHovered = {false};
+        JPanel userPanel = new JPanel() {
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(userHovered[0] ? new Color(170, 170, 170, 255) : new Color(200, 200, 200, 230));
+                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 36, 36);
+                if (userHovered[0]) {
+                    g2.setColor(new Color(120, 120, 120, 120));
+                    g2.setStroke(new BasicStroke(4f));
+                    g2.drawRoundRect(2, 2, getWidth()-4, getHeight()-4, 36, 36);
+                } else {
+                    g2.setColor(new Color(160, 160, 160, 80));
+                    g2.setStroke(new BasicStroke(2f));
+                    g2.drawRoundRect(2, 2, getWidth()-4, getHeight()-4, 36, 36);
+                }
+                g2.dispose();
+                super.paintComponent(g);
+            }
+        };
+        userPanel.setOpaque(false);
+        userPanel.setBounds(centerX + boxW + boxGap, centerY, boxW, boxH);
+        userPanel.setLayout(new BorderLayout());
+        JLabel userLabel = new JLabel("User", SwingConstants.CENTER);
+        userLabel.setFont(new Font("Montserrat", Font.BOLD, 28));
+        userPanel.add(userLabel, BorderLayout.CENTER);
+        userPanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        userPanel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(signInCard, "User clicked!");
+            }
+            public void mouseEntered(MouseEvent e) {
+                userPanel.setBackground(new Color(170, 170, 170, 255));
+                userPanel.getRootPane().repaint();
+                userHovered[0] = true;
+                userPanel.repaint();
+            }
+            public void mouseExited(MouseEvent e) {
+                userPanel.setBackground(new Color(200, 200, 200, 230));
+                userPanel.getRootPane().repaint();
+                userHovered[0] = false;
+                userPanel.repaint();
+            }
+        });
+        signInCard.add(userPanel);
+
+        // Already have an account? LOGIN (centered, bold, button-like, with improved hover and color)
+        JPanel loginPanel = new JPanel();
+        loginPanel.setOpaque(false);
+        loginPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        loginPanel.setBounds(0, centerY + boxH + 60, cardW, 50);
+        JLabel loginText = new JLabel("Already have an account? ");
+        loginText.setFont(new Font("Montserrat", Font.PLAIN, 21));
+        loginText.setForeground(Color.BLACK);
+        loginPanel.add(loginText);
+        JLabel loginLink = new JLabel("LOGIN");
+        loginLink.setFont(new Font("Montserrat", Font.BOLD, 25));
+        loginLink.setForeground(new Color(230, 57, 89)); // #e63959
+        loginLink.setOpaque(true);
+        loginLink.setBackground(new Color(255,255,255,220));
+        loginLink.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(230, 57, 89), 2, true),
+            new EmptyBorder(4, 22, 4, 22)));
+        loginLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        loginLink.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(signInCard, "Login clicked!");
+            }
+            public void mouseEntered(MouseEvent e) {
+                loginLink.setBackground(new Color(230, 57, 89));
+                loginLink.setForeground(Color.WHITE);
+                loginLink.setBorder(BorderFactory.createCompoundBorder(
+                    BorderFactory.createLineBorder(new Color(230, 57, 89), 2, true),
+                    new EmptyBorder(4, 22, 4, 22)));
+                loginLink.repaint();
+            }
+            public void mouseExited(MouseEvent e) {
+                loginLink.setBackground(new Color(255,255,255,220));
+                loginLink.setForeground(new Color(230, 57, 89));
+                loginLink.setBorder(BorderFactory.createCompoundBorder(
+                    BorderFactory.createLineBorder(new Color(230, 57, 89), 2, true),
+                    new EmptyBorder(4, 22, 4, 22)));
+                loginLink.repaint();
+            }
+        });
+        loginPanel.add(loginLink);
+        signInCard.add(loginPanel);
 
         cardPanel.add(heroSection, "HOME");
         cardPanel.add(pricingCard, "PRICING");
