@@ -1,1 +1,1 @@
-/* Fix alignment issue in header */
+/* Reorganize static assets folder */
