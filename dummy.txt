@@ -1,1 +1,1 @@
-/* Tweak CSS grid for mobile layout */
+/* Fix alignment issue in header */
