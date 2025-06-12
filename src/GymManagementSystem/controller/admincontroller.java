@@ -10,13 +10,11 @@ import javax.swing.JOptionPane;
 import GymManagementSystem.Admin;
 import GymManagementSystem.model.Userdata;
 import GymManagementSystem.Dao.AdminDao;
-
 /**
  *
  * @author ACER
  */
 public class admincontroller {
-
     private Admin view;
 
     public admincontroller(GymManagementSystem.controller.admincontroller view) {

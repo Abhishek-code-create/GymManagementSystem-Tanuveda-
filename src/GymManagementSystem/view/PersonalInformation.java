@@ -300,7 +300,7 @@ public class PersonalInformation extends javax.swing.JFrame {
         dashboardFrame.setVisible(true);
         this.dispose(); // Close current window
     }
-    // If NO is selected, do nothing and stay on the current window
+  
 
 
 
