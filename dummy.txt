@@ -1,1 +1,0 @@
-/* Reorganize static assets folder */
