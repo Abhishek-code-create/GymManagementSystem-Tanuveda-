@@ -1,1 +1,1 @@
-/* Adjust padding on login form */
+/* Optimize image rendering performance */
