@@ -285,12 +285,23 @@ public class PersonalInformation extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:                                                                              
-    ImageIcon icon = new ImageIcon("src/images/success.png"); // Path to your icon image
+     int response = JOptionPane.showConfirmDialog(
+            this,
+            "Are you sure you want to go back to the dashboard?",
+            "Confirm",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
 
-    JOptionPane.showMessageDialog(this, "Login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE, icon);
-    Dashboard dashboardFrame = new Dashboard();  
-    dashboardFrame.setVisible(true);
-    this.dispose(); // Close current window
+    if (response == JOptionPane.YES_OPTION) {
+        ImageIcon icon = new ImageIcon("src/images/success.png"); // Path to your icon image
+        JOptionPane.showMessageDialog(this, "Login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE, icon);
+
+        Dashboard dashboardFrame = new Dashboard();  
+        dashboardFrame.setVisible(true);
+        this.dispose(); // Close current window
+    }
+    // If NO is selected, do nothing and stay on the current window
+
 
 
 
