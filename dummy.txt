@@ -1,1 +1,1 @@
-/* Update footer links and contact info */
+/* Tweak CSS grid for mobile layout */
