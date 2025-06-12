@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/AdminUserPageView.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/adminuserpage.jpg</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/forgetpassbg.png</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/LoginSystemView.java</file>
             <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/ForgotPasswordView.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/AdminUserPageView.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/DashBoardView.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/LoginSystemView.java</file>
         </group>
     </open-files>
 </project-private>
