@@ -1,1 +1,1 @@
-/* Optimize image rendering performance */
+/* Improve input validation on registration page */
