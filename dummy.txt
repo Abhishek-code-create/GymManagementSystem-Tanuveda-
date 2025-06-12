@@ -1,1 +1,1 @@
-/* Fix minor UI inconsistency on dashboard */
+/* Update README with setup instructions */
