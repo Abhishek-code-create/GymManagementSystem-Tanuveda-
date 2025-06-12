@@ -1,1 +1,1 @@
-/* Refactor layout system for better maintainability */
+/* Fix minor UI inconsistency on dashboard */
