@@ -66,31 +66,44 @@ public class DashBoardView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        dashboard.setBackground(new java.awt.Color(204, 204, 204));
         dashboard.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/dashboard_119241.png"))); // NOI18N
         dashboard.setText("Dashboard");
-        getContentPane().add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, -1, -1));
+        dashboard.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 170, -1, -1));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 160, -1, -1));
 
         notification.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        notification.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/notificationicon.png"))); // NOI18N
         notification.setText("Notification");
-        getContentPane().add(notification, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 150, -1, -1));
+        notification.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(notification, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 150, -1, -1));
 
         profile.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/profileicon.png"))); // NOI18N
         profile.setText("Profile");
-        getContentPane().add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 150, 60, -1));
+        profile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 150, 100, -1));
 
+        remainder.setBackground(new java.awt.Color(255, 255, 255));
         remainder.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        remainder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/remaindericon.png"))); // NOI18N
         remainder.setText("Remainder");
-        getContentPane().add(remainder, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 150, -1, -1));
+        remainder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(remainder, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 150, -1, -1));
 
         order.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        order.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/ordericon.png"))); // NOI18N
         order.setText("Order ");
-        getContentPane().add(order, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 150, -1, -1));
+        order.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(order, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 150, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/logout_icon_184025.png"))); // NOI18N
         jButton1.setText("Logout");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +113,7 @@ public class DashBoardView extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 40, 130, 40));
 
         jLabel2.setText("Review");
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 50, 70, 30));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -321,7 +335,7 @@ public class DashBoardView extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 240, 270, 200));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/dashboardbackground3.png"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 1590, 940));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1590, 940));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
