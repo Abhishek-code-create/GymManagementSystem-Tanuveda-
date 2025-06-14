@@ -17,17 +17,21 @@ public class MemberTable {
     public MemberTable(JTable table) {
         this.table = table;
         this.model = (DefaultTableModel) table.getModel();
-        // Initialize table with existing members if you have any.
     }
 
+    // Returns total members (row count)
     public int getTotalMembers() {
         return model.getRowCount();
     }
 
+    // Adds a member row to the table
     public void addMember(String name, String contact, String plan) {
-        // Add a new row with default status and join date, for example:
-        Object[] newRow = new Object[] { name, contact, plan, "Active", "2025-06-13", "Edit/Delete" };
-        model.addRow(newRow);
+        // Example fixed values for Status and Join date
+        String status = "Active";
+        String joinDate = java.time.LocalDate.now().toString();
+        String actions = "Edit/Delete"; // Placeholder text
+
+        Object[] rowData = {name, contact, plan, status, joinDate, actions};
+        model.addRow(rowData);
     }
-    
 }
