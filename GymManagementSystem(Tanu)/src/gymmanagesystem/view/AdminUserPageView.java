@@ -10,9 +10,24 @@ package gymmanagesystem.view;
  */
 public class AdminUserPageView extends javax.swing.JFrame {
 
+    private LoginSystemView loginView;
+
     /**
      * Creates new form AdminUserPageView
      */
+    public AdminUserPageView(LoginSystemView loginView) {
+        initComponents();
+        this.loginView = loginView;
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (loginView != null) {
+                    dispose();
+                    loginView.setVisible(true);
+                }
+            }
+        });
+    }
+
     public AdminUserPageView() {
         initComponents();
     }

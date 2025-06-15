@@ -141,7 +141,10 @@ public class LoginSystemView extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void resgiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resgiterActionPerformed
-        // TODO add your handling code here:
+        AdminUserPageView adminPage = new AdminUserPageView(this);
+        adminPage.setLocationRelativeTo(null);
+        adminPage.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_resgiterActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
