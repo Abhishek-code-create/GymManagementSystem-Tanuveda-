@@ -42,8 +42,8 @@ public class RegisterView extends javax.swing.JFrame {
         ConfirmPasswordTextField = new javax.swing.JPasswordField();
         okButton = new javax.swing.JButton();
         Agree = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        PictureField = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         RegisterButton = new javax.swing.JButton();
         SaveButton = new javax.swing.JButton();
         ExistButton = new javax.swing.JButton();
@@ -77,12 +77,12 @@ public class RegisterView extends javax.swing.JFrame {
         Agree.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Agree.setText("I agree all the Terms and Privacy Policies");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagepicker/Registerpage2.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.setInheritsPopupMenu(false);
+        PictureField.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagepicker/Registerpage2.png"))); // NOI18N
+        PictureField.setText("jLabel1");
+        PictureField.setInheritsPopupMenu(false);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagepicker/Tanu.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagepicker/Tanu.png"))); // NOI18N
+        logo.setText("jLabel3");
 
         RegisterButton.setBackground(new java.awt.Color(204, 204, 255));
         RegisterButton.setText("Register");
@@ -115,8 +115,8 @@ public class RegisterView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PictureField, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
@@ -155,14 +155,14 @@ public class RegisterView extends javax.swing.JFrame {
                                         .addGap(14, 14, 14))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addComponent(UserField)
                 .addGap(53, 53, 53)
@@ -195,7 +195,7 @@ public class RegisterView extends javax.swing.JFrame {
                     .addComponent(SaveButton)
                     .addComponent(ExistButton))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PictureField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -207,12 +207,12 @@ public class RegisterView extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
-     JOptionPane.showMessageDialog(this,"Save Done!");
+     JOptionPane.showMessageDialog(this,"Saved!");
         // TODO add your handling code here:
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     private void ExistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExistButtonActionPerformed
-       JOptionPane.showMessageDialog(this,"Existed! ");
+       JOptionPane.showMessageDialog(this,"Exist! ");
         // TODO add your handling code here:
     }//GEN-LAST:event_ExistButtonActionPerformed
 
@@ -271,13 +271,13 @@ public class RegisterView extends javax.swing.JFrame {
     private javax.swing.JButton ExistButton;
     private javax.swing.JLabel PasswordField;
     private javax.swing.JPasswordField PasswordTextField;
+    private javax.swing.JLabel PictureField;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton SaveButton;
     private javax.swing.JLabel UserField;
     private javax.swing.JLabel UsernameField;
     private javax.swing.JTextField UsernameTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel logo;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 

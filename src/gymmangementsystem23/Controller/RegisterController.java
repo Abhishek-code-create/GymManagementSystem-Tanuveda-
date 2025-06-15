@@ -28,23 +28,22 @@ public class RegisterController {
         }
     }
 
-    public boolean registerUser(String Username, String password,String Email,String confirmpassword) {
+    public boolean registerUser(String Username, String password,String Email,String confirmPassword) {
         if (Username.isEmpty() || password.isEmpty()) {
             System.out.println("Username and password cannot be empty.");
             return false;
         }
-        return userDao.Registerview(Username,password,Email,confirmpassword);
+        return userDao.Registerview(Username,password,Email,confirmPassword);
     }
 
     public static void main(String[] args) {
         RegisterController controller = new RegisterController();
-        boolean success = controller.registerUser("testUser", "securePassword","Email","confirmpassword");
+       boolean success = controller.registerUser("Username", "Password","Email","confirmPassword");
 
         if (success) {
-            System.out.println("User registered successfully!");
+          System.out.println("User registered successfully!");     
         } else {
-            System.out.println("Registration failed.");
+           System.out.println("Registration failed.");
         }
     }
 }
-    

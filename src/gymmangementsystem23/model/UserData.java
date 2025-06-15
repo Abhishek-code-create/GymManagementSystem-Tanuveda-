@@ -9,34 +9,34 @@ package gymmangementsystem23.model;
  * @author ASUS
  */
 public class UserData {
-    private String name;
+    private String Username;
     private String password;
     private String ConfirmPassword;
     private String Email;
     
         // Constructor
-    public UserData(String name, String Email, String password,String ConfirmPassword) {
-        this.name = name;
+    public UserData(String Username, String Email, String password,String ConfirmPassword) {
+        this.Username = Username;
         this.Email = Email;
         this.password = password;
         this.ConfirmPassword = ConfirmPassword;
     }
 
     // Getters and Setters
-    public String getFullName() {
-        return name;
+    public String getUsername() {
+        return Username;
     }
 
-    public void setFullName(String name) {
-        this.name = name;
+    public void setFullName(String Username) {
+        this.Username = Username;
     }
 
     public String getEmail() {
         return Email;
     }
 
-    public void setEmail(String email) {
-        this.Email = email;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
     public String getPassword() {

@@ -17,14 +17,14 @@ public class UserDao {
         this.connection = connection;
     }
 
-    public boolean registerUser(String Username, String password,String Email,String confirmpassword) {
-        String sql = "INSERT INTO users (Username, password,Email,confirmpassword) VALUES (?, ?)";
+    public boolean registerUser(String Username, String password,String Email,String confirmPassword) {
+        String sql = "INSERT INTO users (Username, password,Email,confirmPassword) VALUES (?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, Username);
             stmt.setString(2, password);
             stmt.setString(3,Email);
-            stmt.setString(4,confirmpassword);
+            stmt.setString(4,confirmPassword);
             
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -33,14 +33,14 @@ public class UserDao {
         return false;
     }
 
-    public boolean validateUser(String Username, String password,String  Email,String confirmpassword) {
-        String sql = "SELECT * FROM users WHERE Username = ?,password = ?,Email=?,confirmpassword=?";
+    public boolean validateUser(String Username, String password,String  Email,String confirmPassword) {
+        String sql = "SELECT * FROM users WHERE Username = ?,password = ?,Email=?,confirmPassword=?";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, Username);
             stmt.setString(2, password);
             stmt.setString(3, Email);
-            stmt.setString(4,confirmpassword);
+            stmt.setString(4,confirmPassword);
             ResultSet rs = stmt.executeQuery();
             return rs.next();
         } catch (SQLException e) {
@@ -49,7 +49,7 @@ public class UserDao {
         return false;
     }
 
-    public boolean Registerview(String Username, String password, String Email, String confirmpassword) {
+    public boolean Registerview(String Username, String password, String Email, String confirmPassword) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     } 
 }
