@@ -5,17 +5,26 @@
 package gymmanagesystem.view;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import com.toedter.calendar.JCalendar;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author DELL
  */
 public class DashBoardView extends javax.swing.JFrame {
 
+    private JButton checkInButton;
+    private JCalendar calendar;
+    private JLabel streakLabel;
+
     /**
      * Creates new form DashBoardView
      */
     public DashBoardView() {
         initComponents();
+        setupAttendanceComponents();
     }
 
     /**
@@ -26,6 +35,36 @@ public class DashBoardView extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        // Initialize all components first
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jPanel4 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
+        jLabelStreakNumber = new javax.swing.JLabel();
+        jLabelStreakText = new javax.swing.JLabel();
+        
+        // Set up the panel
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        // Create and set the layout
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+        );
+
+        // Add the panel to the content pane
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 510, 310));
+
+        // Initialize components
+        checkInButton = new JButton("Check-in Now");
+        calendar = new JCalendar();
+        streakLabel = new JLabel("0");
 
         dashboard = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -62,10 +101,8 @@ public class DashBoardView extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dashboard.setBackground(new java.awt.Color(204, 204, 204));
         dashboard.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -335,21 +372,6 @@ public class DashBoardView extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 240, 270, 200));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 510, 310));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -448,6 +470,23 @@ public class DashBoardView extends javax.swing.JFrame {
     jLabelStreakText.setText(status);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void setupAttendanceComponents() {
+        // Initialize the calendar
+        jCalendar1 = new JCalendar();
+        jPanel4.add(jCalendar1);
+        
+        // Set up the check-in button
+        jButton4.setText("Check-in Now");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        
+        // Initialize streak label
+        jLabelStreakNumber.setText("0");
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -521,4 +560,27 @@ public class DashBoardView extends javax.swing.JFrame {
     private javax.swing.JLabel remainder;
     private javax.swing.JLabel w;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getCheckInButton() {
+        return jButton4;
+    }
+    
+    public JCalendar getCalendar() {
+        return jCalendar1;
+    }
+    
+    public void updateStreakLabel(int newStreak) {
+        jLabelStreakNumber.setText(String.valueOf(newStreak));
+        
+        // Update status based on streak
+        String status;
+        if (newStreak >= 15) {
+            status = "Strong";
+        } else if (newStreak >= 5) {
+            status = "Normal";
+        } else {
+            status = "Weak";
+        }
+        jLabelStreakText.setText(status);
+    }
 }
