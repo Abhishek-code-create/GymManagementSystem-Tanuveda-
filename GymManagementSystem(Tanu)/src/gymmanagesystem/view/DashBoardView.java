@@ -8,6 +8,12 @@ import javax.swing.JOptionPane;
 import com.toedter.calendar.JCalendar;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GradientPaint;
+import java.awt.geom.RoundRectangle2D;
+import java.util.Random;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,6 +24,8 @@ public class DashBoardView extends javax.swing.JFrame {
     private JButton checkInButton;
     private JCalendar calendar;
     private JLabel streakLabel;
+    private int lastCheckInDay = -1;
+    private Random random = new Random();
 
     /**
      * Creates new form DashBoardView
@@ -35,36 +43,6 @@ public class DashBoardView extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        // Initialize all components first
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        jPanel4 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jLabelStreakNumber = new javax.swing.JLabel();
-        jLabelStreakText = new javax.swing.JLabel();
-        
-        // Set up the panel
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-
-        // Create and set the layout
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-        );
-
-        // Add the panel to the content pane
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 510, 310));
-
-        // Initialize components
-        checkInButton = new JButton("Check-in Now");
-        calendar = new JCalendar();
-        streakLabel = new JLabel("0");
 
         dashboard = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -101,8 +79,11 @@ public class DashBoardView extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dashboard.setBackground(new java.awt.Color(204, 204, 204));
         dashboard.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -276,7 +257,7 @@ public class DashBoardView extends javax.swing.JFrame {
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 420, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Attendence Streak");
@@ -306,7 +287,7 @@ public class DashBoardView extends javax.swing.JFrame {
                         .addComponent(jLabelStreakNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,13 +300,13 @@ public class DashBoardView extends javax.swing.JFrame {
                     .addComponent(jLabelStreakNumber))
                 .addGap(18, 18, 18)
                 .addComponent(jLabelStreakText)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 240, 270, 200));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Check -in ");
@@ -352,7 +333,7 @@ public class DashBoardView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -363,7 +344,7 @@ public class DashBoardView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(33, 33, 33)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -371,6 +352,25 @@ public class DashBoardView extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 240, 270, 200));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 510, 310));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/dashboardbackground3.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1590, 940));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -450,25 +450,33 @@ public class DashBoardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        JOptionPane.showMessageDialog(this, "Check-in successful!");
-
-    // Increment attendance streak
-    int currentStreak = Integer.parseInt(jLabelStreakNumber.getText());
-    currentStreak++;
-    jLabelStreakNumber.setText(String.valueOf(currentStreak));
-
-    // Update status based on days
-    String status;
-    if (currentStreak >= 15) {
-        status = "Strong";
-    } else if (currentStreak >= 5) {
-        status = "Normal";
-    } else {
-        status = "Weak";
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        java.util.Calendar today = java.util.Calendar.getInstance();
+        int dayOfYear = today.get(java.util.Calendar.DAY_OF_YEAR);
+        if (lastCheckInDay == dayOfYear) {
+            JOptionPane.showMessageDialog(this, "You've already checked in today! Try again tomorrow.");
+            return;
+        }
+        int currentStreak = 0;
+        try {
+            currentStreak = Integer.parseInt(jLabelStreakNumber.getText().replaceAll("\\D", ""));
+        } catch (Exception e) {
+            currentStreak = 0;
+        }
+        currentStreak++;
+        jLabelStreakNumber.setText(String.valueOf(currentStreak));
+        lastCheckInDay = dayOfYear;
+        String status;
+        if (currentStreak >= 15) {
+            status = "Strong";
+        } else if (currentStreak >= 5) {
+            status = "Normal";
+        } else {
+            status = "Weak";
+        }
+        jLabelStreakText.setText(status);
+        JOptionPane.showMessageDialog(this, "Check-in successful! Streak: " + currentStreak + " Status: " + status);
     }
-    jLabelStreakText.setText(status);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void setupAttendanceComponents() {
         // Initialize the calendar
@@ -544,6 +552,7 @@ public class DashBoardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelStreakNumber;
     private javax.swing.JLabel jLabelStreakText;
@@ -582,5 +591,18 @@ public class DashBoardView extends javax.swing.JFrame {
             status = "Weak";
         }
         jLabelStreakText.setText(status);
+    }
+
+    // Custom panel with gradient and rounded corners
+    class CoolPanel extends JPanel {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2d = (Graphics2D) g;
+            // Pure grey gradient
+            GradientPaint gp = new GradientPaint(0, 0, new Color(204,204,204), getWidth(), getHeight(), new Color(102,102,102));
+            g2d.setPaint(gp);
+            g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
+        }
     }
 }
