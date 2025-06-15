@@ -4,17 +4,25 @@
  */
 package gymmanagesystem.view;
 
+import gymmanagesystem.controller.ForgotPasswordController;
+
 /**
  *
  * @author DELL
  */
 public class ForgotPasswordView extends javax.swing.JFrame {
+    private ForgotPasswordController controller;
 
     /**
      * Creates new form ForgotPasswordView
      */
-    public ForgotPasswordView() {
+    public ForgotPasswordView(LoginSystemView loginView) {
         initComponents();
+        controller = new ForgotPasswordController(this, loginView);
+    }
+
+    public ForgotPasswordView() {
+        this(null);
     }
 
     /**
@@ -62,22 +70,12 @@ public class ForgotPasswordView extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Save");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(102, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Exit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, -1, -1));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +109,11 @@ public class ForgotPasswordView extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/forgetpassbg.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 610));
+
+        showPasswordButton1 = new javax.swing.JToggleButton("Show");
+        showPasswordButton2 = new javax.swing.JToggleButton("Show");
+        getContentPane().add(showPasswordButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 312, 70, 30));
+        getContentPane().add(showPasswordButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 70, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,5 +190,40 @@ public class ForgotPasswordView extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JToggleButton showPasswordButton1;
+    private javax.swing.JToggleButton showPasswordButton2;
     // End of variables declaration//GEN-END:variables
+
+    // Getter methods for components
+    public javax.swing.JButton getSaveButton() {
+        return jButton2;
+    }
+    
+    public javax.swing.JButton getExitButton() {
+        return jButton1;
+    }
+    
+    public javax.swing.JTextField getUsernameField() {
+        return jTextField1;
+    }
+    
+    public javax.swing.JTextField getEmailField() {
+        return jTextField2;
+    }
+    
+    public javax.swing.JPasswordField getNewPasswordField() {
+        return jPasswordField1;
+    }
+    
+    public javax.swing.JPasswordField getConfirmPasswordField() {
+        return jPasswordField2;
+    }
+    
+    public javax.swing.JToggleButton getShowPasswordButton1() {
+        return showPasswordButton1;
+    }
+    
+    public javax.swing.JToggleButton getShowPasswordButton2() {
+        return showPasswordButton2;
+    }
 }

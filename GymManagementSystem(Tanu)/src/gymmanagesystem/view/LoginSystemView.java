@@ -5,6 +5,10 @@ package gymmanagesystem.view;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import gymmanagesystem.controller.ForgotPasswordController;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 /**
  *
  * @author DELL
@@ -16,6 +20,20 @@ public class LoginSystemView extends javax.swing.JFrame {
      */
     public LoginSystemView() {
         initComponents();
+        setupForgetPasswordLink();
+        new gymmanagesystem.controller.LoginSystemController(this);
+    }
+
+    private void setupForgetPasswordLink() {
+        jLabel4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                ForgotPasswordView forgotPasswordView = new ForgotPasswordView(LoginSystemView.this);
+                forgotPasswordView.setLocationRelativeTo(null);
+                forgotPasswordView.setVisible(true);
+                setVisible(false);
+            }
+        });
     }
 
     /**
@@ -184,4 +202,16 @@ public class LoginSystemView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton resgiter;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getSignInButton() {
+        return jButton1;
+    }
+
+    public javax.swing.JTextField getEmailField() {
+        return jTextField1;
+    }
+
+    public javax.swing.JPasswordField getPasswordField() {
+        return jPasswordField1;
+    }
 }
