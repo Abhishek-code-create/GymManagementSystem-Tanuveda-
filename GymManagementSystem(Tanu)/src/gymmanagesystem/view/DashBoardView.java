@@ -33,6 +33,7 @@ public class DashBoardView extends javax.swing.JFrame {
     public DashBoardView() {
         initComponents();
         setupAttendanceComponents();
+        new gymmanagesystem.controller.DashboardController(this);
     }
 
     /**
@@ -593,6 +594,10 @@ public class DashBoardView extends javax.swing.JFrame {
         jLabelStreakText.setText(status);
     }
 
+    public void setWelcomeLabel(String message) {
+        jLabel1.setText(message);
+    }
+
     // Custom panel with gradient and rounded corners
     class CoolPanel extends JPanel {
         @Override
@@ -604,5 +609,9 @@ public class DashBoardView extends javax.swing.JFrame {
             g2d.setPaint(gp);
             g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
         }
+    }
+
+    public javax.swing.JButton getLogoutButton() {
+        return jButton1;
     }
 }
