@@ -482,6 +482,17 @@ public class DashBoardView extends javax.swing.JFrame {
     private void setupAttendanceComponents() {
         // Initialize the calendar
         jCalendar1 = new JCalendar();
+        
+        // Customize calendar colors to grey scheme
+        jCalendar1.setBackground(new Color(240, 240, 240)); // Light grey background
+        jCalendar1.getDayChooser().setBackground(new Color(240, 240, 240));
+        jCalendar1.getDayChooser().setDecorationBackgroundColor(new Color(200, 200, 200)); // Medium grey for decoration
+        jCalendar1.getDayChooser().setDecorationBordersVisible(true);
+        jCalendar1.getDayChooser().setWeekdayForeground(new Color(80, 80, 80)); // Dark grey for weekday text
+        jCalendar1.getDayChooser().setDecorationBackgroundVisible(true);
+        jCalendar1.getMonthChooser().setBackground(new Color(240, 240, 240));
+        jCalendar1.getYearChooser().setBackground(new Color(240, 240, 240));
+        
         jPanel4.add(jCalendar1);
         
         // Set up the check-in button

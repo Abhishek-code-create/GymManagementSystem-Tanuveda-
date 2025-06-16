@@ -11,6 +11,17 @@
             <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/controller/ForgotPasswordController.java</file>
             <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/LoginSystemView.java</file>
             <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/controller/LoginSystemController.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/model/DashboardModel.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/controller/DashboardController.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/model/LoginSystemModel.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/tanu/GymManagementSystemTanu.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/Main.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/controller/AttendanceController.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/UserRegisterView.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/view/AdminRegisterView.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/model/UserRegistrationModel.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/controller/UserRegistrationController.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagesystem/controller/AdminRegistrationController.java</file>
         </group>
     </open-files>
 </project-private>
