@@ -8,6 +8,6 @@ package gymmangementsystem23.Controller;
  *
  * @author ASUS
  */
-public class AdminNotificationcontroller {
+public class AdminNotificationController {
     
 }

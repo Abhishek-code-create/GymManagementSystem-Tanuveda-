@@ -11,12 +11,17 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class AdminNotificationView extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form AdminNotificationView
      */
     public AdminNotificationView() {
         initComponents();
+        // Set default selected items
+     NotificationTypeTextField.setSelectedItem("Announcement");
+     TargetAudienceTextField.setSelectedItem("All Members");
+      
     }
 
     /**
@@ -43,6 +48,7 @@ public class AdminNotificationView extends javax.swing.JFrame {
         CreateNotificationButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -127,6 +133,7 @@ public class AdminNotificationView extends javax.swing.JFrame {
 
         jLabel5.setText("Create new notification to send to your members.");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, 270, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 20, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,6 +196,7 @@ JOptionPane.showMessageDialog(this,"Saved");
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CreateNotificationButton;
@@ -204,6 +212,7 @@ JOptionPane.showMessageDialog(this,"Saved");
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     // End of variables declaration//GEN-END:variables
 }
