@@ -34,6 +34,7 @@ public class AdminNotificationView extends javax.swing.JFrame {
     private void initComponents() {
 
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        arrayListModel1 = new com.jgoodies.common.collect.ArrayListModel();
         jLabel1 = new javax.swing.JLabel();
         NotificationTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -102,7 +103,7 @@ public class AdminNotificationView extends javax.swing.JFrame {
                 CancelButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(CancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, 90, 30));
+        getContentPane().add(CancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 90, 30));
 
         SaveButton.setBackground(new java.awt.Color(0, 0, 0));
         SaveButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -113,7 +114,7 @@ public class AdminNotificationView extends javax.swing.JFrame {
                 SaveButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, 120, 30));
+        getContentPane().add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 120, 30));
 
         CreateNotificationTextField.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         CreateNotificationTextField.setText("Create Notification");
@@ -138,9 +139,9 @@ public class AdminNotificationView extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, 270, 20));
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 20, -1));
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBox1.setText("Schedule for later");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 130, 40));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 150, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,6 +215,7 @@ JOptionPane.showMessageDialog(this,"Saved");
     private javax.swing.JComboBox<String> NotificationTypeTextField;
     private javax.swing.JButton SaveButton;
     private javax.swing.JComboBox<String> TargetAudienceTextField;
+    private com.jgoodies.common.collect.ArrayListModel arrayListModel1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

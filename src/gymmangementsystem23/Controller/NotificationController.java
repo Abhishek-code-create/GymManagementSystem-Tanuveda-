@@ -19,12 +19,12 @@ public class NotificationController extends JPanel {
         setLayout(new BorderLayout(10, 0));
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        setMaximumSize(new Dimension(Integer.MAX_VALUE, 70));
+        setMaximumSize(new Dimension(Integer.MAX_VALUE, 80));
 
         // Profile Image
         JLabel avatar = new JLabel();
         if (avatarIcon != null) {
-            Image img = avatarIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+            Image img = avatarIcon.getImage().getScaledInstance(45, 45, Image.SCALE_SMOOTH);
             avatar.setIcon(new ImageIcon(img));
         }
         avatar.setPreferredSize(new Dimension(50, 50));
