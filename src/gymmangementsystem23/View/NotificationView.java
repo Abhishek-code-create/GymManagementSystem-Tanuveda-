@@ -112,7 +112,7 @@ public class NotificationView extends javax.swing.JFrame {
             public void run() {
                 new NotificationView().setVisible(true);
             }
-        });
+        }); 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -124,10 +124,10 @@ private void showNotifications() {
     notificationPanel.setBackground(Color.WHITE);
 
     // Add sample notifications
-    notificationPanel.add(new NotificationController("Tiya", "answered your comment", "3 day ago", new ImageIcon("src/icons/user1.png")));
+    notificationPanel.add(new NotificationController("Tiya", "answered your comment", "4 day ago", new ImageIcon("src/icons/user1.png")));
     notificationPanel.add(new NotificationController("Sophie", "sent you a message", "2 min ago", new ImageIcon("src/icons/user2.png")));
     notificationPanel.add(new NotificationController("jiya", "joined your class", "5 days ago", new ImageIcon("src/icons/user3.png")));
-    notificationPanel.add(new NotificationController("Siya", "liked your post", "1 hours ago", new ImageIcon("src/icons/user2.png")));
+    notificationPanel.add(new NotificationController("Siya", "liked your post", "5 hours ago", new ImageIcon("src/icons/user2.png")));
 
     JScrollPane scrollPane = new JScrollPane(notificationPanel);
     scrollPane.setPreferredSize(new Dimension(320, 400));
@@ -148,11 +148,5 @@ private void showNotifications() {
     dialog.add(container);
     dialog.setVisible(true);
 }
-
-
-
-
-
-
 
 }

@@ -11,8 +11,7 @@ import java.awt.*;
  */
 
     
-import javax.swing.*;
-import java.awt.*;
+
 
 public class NotificationController extends JPanel {
     public NotificationController(String Username, String message, String time, ImageIcon avatarIcon) {

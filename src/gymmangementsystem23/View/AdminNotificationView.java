@@ -35,6 +35,7 @@ public class AdminNotificationView extends javax.swing.JFrame {
 
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         arrayListModel1 = new com.jgoodies.common.collect.ArrayListModel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         NotificationTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -55,58 +56,61 @@ public class AdminNotificationView extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/Tanu2.png.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Notification Title");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 154, -1, -1));
-        getContentPane().add(NotificationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 176, 600, 44));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        getContentPane().add(NotificationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1170, 80));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("Message");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 80, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 110, -1));
 
         MessageTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MessageTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(MessageTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 266, 600, 67));
+        getContentPane().add(MessageTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 1170, 90));
 
-        NotificationTypeField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        NotificationTypeField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         NotificationTypeField.setText("Notification Type");
-        getContentPane().add(NotificationTypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        getContentPane().add(NotificationTypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
 
-        NotificationTypeTextField.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        NotificationTypeTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NotificationTypeTextField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Announcement", "1", "2", "3", "4", " ", " " }));
         NotificationTypeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NotificationTypeTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(NotificationTypeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 270, 30));
+        getContentPane().add(NotificationTypeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 590, 90));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Target Audience");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 460, -1, -1));
 
-        TargetAudienceTextField.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        TargetAudienceTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         TargetAudienceTextField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Members", "1", "2", "3", "4" }));
-        getContentPane().add(TargetAudienceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 310, 30));
+        getContentPane().add(TargetAudienceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 570, 90));
 
-        CancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CancelButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         CancelButton.setText("Cancel");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(CancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 90, 30));
+        getContentPane().add(CancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 630, 120, 50));
 
         SaveButton.setBackground(new java.awt.Color(0, 0, 0));
-        SaveButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SaveButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         SaveButton.setForeground(new java.awt.Color(255, 255, 255));
         SaveButton.setText("Save as Draft");
         SaveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -114,14 +118,14 @@ public class AdminNotificationView extends javax.swing.JFrame {
                 SaveButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 120, 30));
+        getContentPane().add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 630, 180, 50));
 
-        CreateNotificationTextField.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        CreateNotificationTextField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         CreateNotificationTextField.setText("Create Notification");
-        getContentPane().add(CreateNotificationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        getContentPane().add(CreateNotificationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         CreateNotificationButton.setBackground(new java.awt.Color(51, 0, 51));
-        CreateNotificationButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        CreateNotificationButton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         CreateNotificationButton.setForeground(new java.awt.Color(255, 255, 255));
         CreateNotificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/Addsign.png"))); // NOI18N
         CreateNotificationButton.setText(" Create Notification");
@@ -130,18 +134,19 @@ public class AdminNotificationView extends javax.swing.JFrame {
                 CreateNotificationButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(CreateNotificationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, -1));
+        getContentPane().add(CreateNotificationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 100));
 
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 6, 10, 10));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Create new notification to send to your members.");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, 270, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 320, 20));
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 20, -1));
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jCheckBox1.setText("Schedule for later");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 150, 40));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, 260, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -223,6 +228,7 @@ JOptionPane.showMessageDialog(this,"Saved");
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     // End of variables declaration//GEN-END:variables
 }
