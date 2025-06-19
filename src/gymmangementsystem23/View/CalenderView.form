@@ -34,6 +34,11 @@
   </Layout>
   <SubComponents>
     <Component class="com.toedter.calendar.JCalendar" name="jCalendar1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="cc" red="cc" type="rgb"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
