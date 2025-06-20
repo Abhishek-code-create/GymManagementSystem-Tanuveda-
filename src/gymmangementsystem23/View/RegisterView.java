@@ -68,6 +68,8 @@ public class RegisterView extends javax.swing.JFrame {
         EmailField.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         EmailField.setText("Email");
 
+        EmailTextField.setForeground(new java.awt.Color(204, 204, 255));
+
         PasswordField.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         PasswordField.setText("Password");
 
@@ -103,8 +105,18 @@ public class RegisterView extends javax.swing.JFrame {
         PhoneNumberField.setText("Phone Number");
 
         ShowButton.setText("Show");
+        ShowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowButtonActionPerformed(evt);
+            }
+        });
 
         ShowButton2.setText("Show");
+        ShowButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Already have an account? ");
@@ -234,6 +246,16 @@ public class RegisterView extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_okButtonActionPerformed
+
+    private void ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButtonActionPerformed
+               
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ShowButtonActionPerformed
+
+    private void ShowButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButton2ActionPerformed
+              
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ShowButton2ActionPerformed
 
     /**
      * @param args the command line arguments
