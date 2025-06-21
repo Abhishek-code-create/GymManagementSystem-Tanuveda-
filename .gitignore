@@ -1,0 +1,41 @@
+# NetBeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.bak
+*.~*
+
+# Maven
+target/
+
+# Gradle
+.gradle/
+build/
+
+# Other
+*.lock
