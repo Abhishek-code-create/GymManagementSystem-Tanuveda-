@@ -1,8 +1,8 @@
 package gymmanagesystem;
 
-import gymmanagesystem.controller.AttendanceController;
+import gymmanagementsystem.controller.AttendanceController;
 import gymmanagesystem.model.AttendanceModel;
-import gymmanagesystem.view.DashBoardView;
+import gymmanagementsystem.view.DashBoardView;
 
 public class Main {
     public static void main(String[] args) {
