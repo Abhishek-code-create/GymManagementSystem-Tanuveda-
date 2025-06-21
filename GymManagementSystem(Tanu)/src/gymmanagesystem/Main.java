@@ -1,17 +1,15 @@
 package gymmanagesystem;
 
-import gymmanagementsystem.controller.AttendanceController;
-import gymmanagesystem.model.AttendanceModel;
-import gymmanagementsystem.view.DashBoardView;
+import gymmanagementsystem.controller.HomePageController;
+import gymmanagementsystem.view.HomePageView;
+import javax.swing.SwingUtilities;
 
 public class Main {
     public static void main(String[] args) {
-        // Create the MVC components
-        AttendanceModel model = new AttendanceModel();
-        DashBoardView view = new DashBoardView();
-        AttendanceController controller = new AttendanceController(model, view);
-        
-        // Show the dashboard
-        view.setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+            HomePageView homePageView = new HomePageView();
+            new HomePageController(homePageView);
+            homePageView.setVisible(true);
+        });
     }
 } 

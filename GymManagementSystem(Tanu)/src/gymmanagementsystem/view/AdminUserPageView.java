@@ -4,6 +4,9 @@
  */
 package gymmanagementsystem.view;
 
+import gymmanagementsystem.controller.UserRegistrationController;
+import gymmanagementsystem.controller.AdminUserPageController;
+
 /**
  *
  * @author DELL
@@ -11,6 +14,7 @@ package gymmanagementsystem.view;
 public class AdminUserPageView extends javax.swing.JFrame {
 
     private LoginSystemView loginView;
+    private AdminUserPageController controller;
 
     /**
      * Creates new form AdminUserPageView
@@ -18,18 +22,22 @@ public class AdminUserPageView extends javax.swing.JFrame {
     public AdminUserPageView(LoginSystemView loginView) {
         initComponents();
         this.loginView = loginView;
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if (loginView != null) {
-                    dispose();
-                    loginView.setVisible(true);
-                }
-            }
-        });
+        setupButtonConnections();
     }
 
     public AdminUserPageView() {
         initComponents();
+        setupButtonConnections();
+    }
+    
+    public void setController(AdminUserPageController controller) {
+        this.controller = controller;
+        // Re-setup button connections now that controller is available
+        setupButtonConnections();
+    }
+    
+    public AdminUserPageController getController() {
+        return controller;
     }
 
     /**
@@ -95,19 +103,40 @@ public class AdminUserPageView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AdminRegisterView adminRegisterView = new AdminRegisterView();
-        adminRegisterView.setLocationRelativeTo(null);
-        adminRegisterView.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void setupButtonConnections() {
+        // Connect Admin button
+        jButton1.addActionListener(e -> onAdminButtonClick());
+        
+        // Connect User button  
+        jButton2.addActionListener(e -> onUserButtonClick());
+        
+        // Connect Login link
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                onLoginLinkClick();
+            }
+        });
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        UserRegisterView userRegisterView = new UserRegisterView();
-        userRegisterView.setLocationRelativeTo(null);
-        userRegisterView.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    // Public methods for controller to call directly (no listeners)
+    public void onAdminButtonClick() {
+        if (controller != null) {
+            controller.handleAdminButton();
+        }
+    }
+    
+    public void onUserButtonClick() {
+        if (controller != null) {
+            controller.handleUserButton();
+        }
+    }
+    
+    public void onLoginLinkClick() {
+        if (controller != null) {
+            controller.handleLoginLink();
+        }
+    }
 
     /**
      * @param args the command line arguments

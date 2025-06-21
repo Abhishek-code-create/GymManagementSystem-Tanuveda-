@@ -1,6 +1,6 @@
 package gymmanagementsystem.controller;
 
-import gymmanagesystem.model.ForgotPasswordModel;
+import gymmanagementsystem.model.ForgotPasswordModel;
 import gymmanagementsystem.view.ForgotPasswordView;
 import gymmanagementsystem.view.LoginSystemView;
 
@@ -22,20 +22,6 @@ public class ForgotPasswordController {
         
         // Exit button listener
         view.getExitButton().addActionListener(e -> handleExit());
-        
-        // Show/hide password listeners
-        view.getShowPasswordButton1().addActionListener(e -> togglePasswordField(view.getNewPasswordField(), view.getShowPasswordButton1()));
-        view.getShowPasswordButton2().addActionListener(e -> togglePasswordField(view.getConfirmPasswordField(), view.getShowPasswordButton2()));
-    }
-    
-    private void togglePasswordField(javax.swing.JPasswordField field, javax.swing.JToggleButton button) {
-        if (button.isSelected()) {
-            field.setEchoChar((char)0);
-            button.setText("Hide");
-        } else {
-            field.setEchoChar('•');
-            button.setText("Show");
-        }
     }
     
     private void handleSave() {

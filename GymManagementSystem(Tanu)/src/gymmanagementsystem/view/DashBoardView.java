@@ -34,6 +34,28 @@ public class DashBoardView extends javax.swing.JFrame {
         initComponents();
         setupAttendanceComponents();
         new gymmanagementsystem.controller.DashboardController(this);
+        
+        // Convert profile JLabel to JButton for clickable functionality
+        profile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gymmanagementsystem.model.personaldata model = new gymmanagementsystem.model.personaldata();
+                gymmanagementsystem.view.PersonalInformation personalInfoView = new gymmanagementsystem.view.PersonalInformation();
+                gymmanagementsystem.controller.personalcontroller controller = new gymmanagementsystem.controller.personalcontroller(model, personalInfoView);
+                personalInfoView.setController(controller);
+                personalInfoView.setVisible(true);
+            }
+        });
+        
+        // Add click listener to Review label
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gymmanagementsystem.view.Reviewpage reviewPage = new gymmanagementsystem.view.Reviewpage();
+                reviewPage.setLocationRelativeTo(null);
+                reviewPage.setVisible(true);
+            }
+        });
     }
 
     /**
@@ -81,7 +103,6 @@ public class DashBoardView extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
-        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -369,10 +390,6 @@ public class DashBoardView extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 510, 310));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/dashboardbackground3.png"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1590, 940));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -564,7 +581,6 @@ public class DashBoardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelStreakNumber;
     private javax.swing.JLabel jLabelStreakText;

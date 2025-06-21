@@ -1,6 +1,6 @@
 package gymmanagementsystem.controller;
 
-import gymmanagesystem.model.DashboardModel;
+import gymmanagementsystem.model.DashboardModel;
 import gymmanagementsystem.view.DashBoardView;
 
 public class DashboardController {

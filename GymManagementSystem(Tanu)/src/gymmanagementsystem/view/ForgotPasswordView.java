@@ -123,29 +123,33 @@ public class ForgotPasswordView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (controller != null) {
+            controller.handleSavePassword();
+        }
+    }
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // Username field action - no specific action needed
+    }
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
+        // Email field action - no specific action needed
+    }
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // New password field action - no specific action needed
+    }
 
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
+    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {
+        // Confirm password field action - no specific action needed
+    }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (controller != null) {
+            controller.handleExit();
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -220,13 +224,5 @@ public class ForgotPasswordView extends javax.swing.JFrame {
     
     public javax.swing.JPasswordField getConfirmPasswordField() {
         return jPasswordField2;
-    }
-    
-    public javax.swing.JToggleButton getShowPasswordButton1() {
-        return showPasswordButton1;
-    }
-    
-    public javax.swing.JToggleButton getShowPasswordButton2() {
-        return showPasswordButton2;
     }
 }

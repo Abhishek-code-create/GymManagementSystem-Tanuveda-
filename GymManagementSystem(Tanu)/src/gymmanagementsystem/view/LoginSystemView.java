@@ -6,8 +6,14 @@ package gymmanagementsystem.view;
  */
 
 import gymmanagementsystem.controller.ForgotPasswordController;
+import gymmanagementsystem.controller.HomePageController;
+import gymmanagementsystem.controller.AdminUserPageController;
+import gymmanagementsystem.view.HomePageView;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JCheckBox;
+import javax.swing.JButton;
 
 /**
  *
@@ -15,25 +21,39 @@ import java.awt.event.MouseEvent;
  */
 public class LoginSystemView extends javax.swing.JFrame {
 
+    private boolean passwordVisible = false;
+    private gymmanagementsystem.controller.LoginSystemController controller;
+
     /**
      * Creates new form LoginSystem
      */
     public LoginSystemView() {
         initComponents();
-        setupForgetPasswordLink();
-        new gymmanagementsystem.controller.LoginSystemController(this);
-    }
-
-    private void setupForgetPasswordLink() {
-        jLabel4.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                ForgotPasswordView forgotPasswordView = new ForgotPasswordView(LoginSystemView.this);
-                forgotPasswordView.setLocationRelativeTo(null);
-                forgotPasswordView.setVisible(true);
-                setVisible(false);
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (controller != null) {
+                    controller.handleForgotPassword();
+                }
             }
         });
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (controller != null) {
+                    controller.handleBackToHome();
+                }
+            }
+        });
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (controller != null) {
+                    controller.handleSignUp();
+                }
+            }
+        });
+        controller = new gymmanagementsystem.controller.LoginSystemController(this);
     }
 
     /**
@@ -56,6 +76,8 @@ public class LoginSystemView extends javax.swing.JFrame {
         resgiter = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,7 +116,7 @@ public class LoginSystemView extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 410, 40));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 340, 40));
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -125,6 +147,18 @@ public class LoginSystemView extends javax.swing.JFrame {
         jLabel6.setText("SIGN UP for free!");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 650, -1, 20));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel9.setText("<Back to Homepage");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
+
+        jButton2.setText("Show");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 60, -1));
+
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePicker/firstloginpage2 (2).png"))); // NOI18N
         jLabel7.setText("jLabel7");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 770));
@@ -142,6 +176,8 @@ public class LoginSystemView extends javax.swing.JFrame {
 
     private void resgiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resgiterActionPerformed
         AdminUserPageView adminPage = new AdminUserPageView(this);
+        AdminUserPageController adminUserController = new AdminUserPageController(adminPage);
+        adminPage.setController(adminUserController);
         adminPage.setLocationRelativeTo(null);
         adminPage.setVisible(true);
         setVisible(false);
@@ -152,8 +188,22 @@ public class LoginSystemView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if (controller != null) {
+            controller.handleSignIn();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (!passwordVisible) {
+            jPasswordField1.setEchoChar((char) 0);
+            jButton2.setText("Hide");
+            passwordVisible = true;
+        } else {
+            jPasswordField1.setEchoChar('•');
+            jButton2.setText("Show");
+            passwordVisible = false;
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +243,7 @@ public class LoginSystemView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -201,6 +252,7 @@ public class LoginSystemView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton resgiter;
@@ -216,5 +268,17 @@ public class LoginSystemView extends javax.swing.JFrame {
 
     public javax.swing.JPasswordField getPasswordField() {
         return jPasswordField1;
+    }
+    
+    public javax.swing.JButton getRegisterButton() {
+        return resgiter;
+    }
+    
+    public gymmanagementsystem.controller.LoginSystemController getController() {
+        return controller;
+    }
+    
+    public void registerNavigation(MouseListener l){
+        jLabel6.addMouseListener(l);
     }
 }

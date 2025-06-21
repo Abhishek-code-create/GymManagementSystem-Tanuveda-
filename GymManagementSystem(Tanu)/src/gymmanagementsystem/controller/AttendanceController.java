@@ -1,7 +1,7 @@
 package gymmanagementsystem.controller;
 
 import com.toedter.calendar.JCalendar;
-import gymmanagesystem.model.AttendanceModel;
+import gymmanagementsystem.model.AttendanceModel;
 import gymmanagementsystem.view.DashBoardView;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
