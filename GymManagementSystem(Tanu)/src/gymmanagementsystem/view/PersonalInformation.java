@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.io.File;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Image;
+import javax.swing.JTextField;
+import gymmanagementsystem.controller.personalcontroller;
 
 
 /**
@@ -15,16 +17,35 @@ import java.awt.Image;
  */
 public class PersonalInformation extends javax.swing.JFrame {
 
-   private javax.swing.JLabel profileLabel;
+    private javax.swing.JLabel profileLabel;
+    private personalcontroller controller;
 
+    private javax.swing.JTextField nameField;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JTextField phoneField;
+    private javax.swing.JButton editButton;
+    private javax.swing.JButton saveButton;
 
     /**
      * Creates new form PersonalInformation
      */
-    public PersonalInformation() {
-    initComponents();
-    profileLabel = jLabel15; 
-}
+    public PersonalInformation(String username) {
+        initComponents();
+        this.controller = new personalcontroller(this, username);
+    }
+
+    public JTextField getFullNameField() { return jTextField4; }
+    public JTextField getEmailField() { return jTextField3; }
+    public JTextField getPhoneField() { return jTextField5; }
+    public JTextField getDobField() { return jTextField1; }
+    public JTextField getGenderField() { return jTextField6; }
+    public JTextField getAddressField() { return jTextField7; }
+    public JTextField getEmergencyContactField() { return jTextField2; }
+    public JLabel getProfilePictureLabel() { return jLabel15; }
+    public void setDisplayName(String name) { jLabel2.setText(name); }
+    public void setDisplayEmail(String email) { jLabel3.setText(email); }
+    public void setDisplayPhone(String phone) { jLabel4.setText(phone); }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -244,7 +265,7 @@ public class PersonalInformation extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         if (controller != null) {
-            controller.updatePersonalInformation();
+            controller.saveInformation();
         } else {
             // Fallback if controller is not set
             String fullName = jTextField4.getText();
@@ -263,6 +284,11 @@ public class PersonalInformation extends javax.swing.JFrame {
 
             // Show confirmation
             JOptionPane.showMessageDialog(this, "Changes saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        
+            // Update the display labels on the left side
+            jLabel2.setText(fullName);
+            jLabel3.setText(email);
+            jLabel4.setText(phone);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -281,8 +307,8 @@ public class PersonalInformation extends javax.swing.JFrame {
                 ImageIcon profileIcon = new ImageIcon(selectedFile.getAbsolutePath());
 
                 // Resize the image to fit the label
-                Image scaledImage = profileIcon.getImage().getScaledInstance(profileLabel.getWidth(), profileLabel.getHeight(), Image.SCALE_SMOOTH);
-                profileLabel.setIcon(new ImageIcon(scaledImage));
+                Image scaledImage = profileIcon.getImage().getScaledInstance(jLabel15.getWidth(), jLabel15.getHeight(), Image.SCALE_SMOOTH);
+                jLabel15.setIcon(new ImageIcon(scaledImage));
             }
         }
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -348,7 +374,7 @@ public class PersonalInformation extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonalInformation().setVisible(true);
+                new PersonalInformation("testuser").setVisible(true);
             }
         });
     }
@@ -384,95 +410,5 @@ public class PersonalInformation extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
-
-    // Controller reference
-    private gymmanagementsystem.controller.personalcontroller controller;
-
-    // Getter and Setter methods for form fields
-    public String getFullName() {
-        return jTextField4.getText();
-    }
-
-    public void setFullName(String fullName) {
-        jTextField4.setText(fullName);
-    }
-
-    public String getEmail() {
-        return jTextField3.getText();
-    }
-
-    public void setEmail(String email) {
-        jTextField3.setText(email);
-    }
-
-    public String getPhone() {
-        return jTextField5.getText();
-    }
-
-    public void setPhone(String phone) {
-        jTextField5.setText(phone);
-    }
-
-    public String getDob() {
-        return jTextField1.getText();
-    }
-
-    public void setDob(String dob) {
-        jTextField1.setText(dob);
-    }
-
-    public String getGender() {
-        return jTextField6.getText();
-    }
-
-    public void setGender(String gender) {
-        jTextField6.setText(gender);
-    }
-
-    public String getAddress() {
-        return jTextField7.getText();
-    }
-
-    public void setAddress(String address) {
-        jTextField7.setText(address);
-    }
-
-    public String getEmergencyContact() {
-        return jTextField2.getText();
-    }
-
-    public void setEmergencyContact(String emergencyContact) {
-        jTextField2.setText(emergencyContact);
-    }
-
-    public void setProfilePicture(String imagePath) {
-        try {
-            ImageIcon icon = new ImageIcon(imagePath);
-            Image scaledImage = icon.getImage().getScaledInstance(
-                profileLabel.getWidth(), 
-                profileLabel.getHeight(), 
-                Image.SCALE_SMOOTH
-            );
-            profileLabel.setIcon(new ImageIcon(scaledImage));
-        } catch (Exception e) {
-            System.err.println("Error setting profile picture: " + e.getMessage());
-        }
-    }
-
-    public int getProfileLabelWidth() {
-        return profileLabel.getWidth();
-    }
-
-    public int getProfileLabelHeight() {
-        return profileLabel.getHeight();
-    }
-
-    public void setController(gymmanagementsystem.controller.personalcontroller controller) {
-        this.controller = controller;
-    }
-
-    public gymmanagementsystem.controller.personalcontroller getController() {
-        return controller;
-    }
 }
 

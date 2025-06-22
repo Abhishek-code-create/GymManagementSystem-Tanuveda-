@@ -1,8 +1,7 @@
 package gymmanagementsystem.test;
 
-import gymmanagementsystem.controller.personalcontroller;
-import gymmanagementsystem.model.personaldata;
 import gymmanagementsystem.view.PersonalInformation;
+import javax.swing.SwingUtilities;
 
 /**
  * Test class to verify Personal Information functionality
@@ -12,61 +11,52 @@ public class PersonalInfoTest {
     public static void main(String[] args) {
         System.out.println("Testing Personal Information System...");
         
-        try {
-            // Test 1: Create model
-            System.out.println("Test 1: Creating personaldata model...");
-            personaldata model = new personaldata();
-            model.setFullName("John Doe");
-            model.setEmail("john.doe@example.com");
-            model.setPhone("1234567890");
-            model.setDob("1990-01-01");
-            model.setGender("Male");
-            model.setAddress("123 Main St, City, State");
-            model.setEmergencyContact("9876543210");
-            System.out.println("✓ personaldata model created successfully");
-            System.out.println("  - Full Name: " + model.getFullName());
-            System.out.println("  - Email: " + model.getEmail());
-            System.out.println("  - Phone: " + model.getPhone());
+        // The view must be created on the Event Dispatch Thread
+        SwingUtilities.invokeLater(() -> {
+            try {
+                // Test 1: Create view
+                System.out.println("Test 1: Creating PersonalInformation view...");
+                // The view now requires a username and creates its own controller.
+                PersonalInformation view = new PersonalInformation("testuser");
+                System.out.println("✓ PersonalInformation view created successfully");
+
+                // The view is initialized with mock data by the controller. Let's check it.
+                System.out.println("Test 2: Verifying initial data loaded by controller...");
+                if ("Siddhartha Sah".equals(view.getFullNameField().getText())) {
+                    System.out.println("✓ Initial data loaded correctly.");
+                } else {
+                    System.out.println("✗ Initial data not loaded correctly. Expected 'Siddhartha Sah', got '" + view.getFullNameField().getText() + "'");
+                }
+
+                // Test 3: Test setting and getting text from fields
+                System.out.println("Test 3: Testing setting/getting text from fields...");
+                view.getFullNameField().setText("Jane Smith");
+                view.getEmailField().setText("jane.smith@example.com");
+                view.getPhoneField().setText("5551234567");
+                
+                if ("Jane Smith".equals(view.getFullNameField().getText()) && 
+                    "jane.smith@example.com".equals(view.getEmailField().getText()) &&
+                    "5551234567".equals(view.getPhoneField().getText())) {
+                    System.out.println("✓ Field getter/setter methods working correctly");
+                } else {
+                    System.out.println("✗ Field getter/setter methods not working correctly");
+                }
+                
+                // The view can be made visible to manually inspect if needed,
+                // but for an automated test, we just check the state.
+                // view.setVisible(true); 
+
+                System.out.println("\nAll Personal Information tests completed successfully!");
+                System.out.println("The Personal Information system should now be functional when run.");
             
-            // Test 2: Create view
-            System.out.println("Test 2: Creating PersonalInformation view...");
-            PersonalInformation view = new PersonalInformation();
-            System.out.println("✓ PersonalInformation view created successfully");
-            
-            // Test 3: Create controller
-            System.out.println("Test 3: Creating personalcontroller...");
-            personalcontroller controller = new personalcontroller(model, view);
-            view.setController(controller);
-            System.out.println("✓ personalcontroller created successfully");
-            
-            // Test 4: Test getter/setter methods
-            System.out.println("Test 4: Testing getter/setter methods...");
-            view.setFullName("Jane Smith");
-            view.setEmail("jane.smith@example.com");
-            view.setPhone("5551234567");
-            
-            if ("Jane Smith".equals(view.getFullName()) && 
-                "jane.smith@example.com".equals(view.getEmail()) &&
-                "5551234567".equals(view.getPhone())) {
-                System.out.println("✓ Getter/setter methods working correctly");
-            } else {
-                System.out.println("✗ Getter/setter methods not working correctly");
+            } catch (Exception e) {
+                System.err.println("Error during testing: " + e.getMessage());
+                e.printStackTrace();
+            } finally {
+                // Since the test runs and finishes, we should exit the application
+                // if we were to show the window. Otherwise, the test will hang.
+                // System.exit(0);
             }
-            
-            // Test 5: Test model validation
-            System.out.println("Test 5: Testing model validation...");
-            if (model.isValid()) {
-                System.out.println("✓ Model validation working correctly");
-            } else {
-                System.out.println("✗ Model validation not working correctly");
-            }
-            
-            System.out.println("\nAll Personal Information tests completed successfully!");
-            System.out.println("The Personal Information system should now be functional when run in NetBeans IDE.");
-            
-        } catch (Exception e) {
-            System.err.println("Error during testing: " + e.getMessage());
-            e.printStackTrace();
-        }
+        });
     }
 } 

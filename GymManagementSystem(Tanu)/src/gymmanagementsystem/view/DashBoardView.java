@@ -39,10 +39,8 @@ public class DashBoardView extends javax.swing.JFrame {
         profile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gymmanagementsystem.model.personaldata model = new gymmanagementsystem.model.personaldata();
-                gymmanagementsystem.view.PersonalInformation personalInfoView = new gymmanagementsystem.view.PersonalInformation();
-                gymmanagementsystem.controller.personalcontroller controller = new gymmanagementsystem.controller.personalcontroller(model, personalInfoView);
-                personalInfoView.setController(controller);
+                // The PersonalInformation view is now responsible for its own controller
+                gymmanagementsystem.view.PersonalInformation personalInfoView = new gymmanagementsystem.view.PersonalInformation("current_user"); // Pass a real username here
                 personalInfoView.setVisible(true);
             }
         });

@@ -5,14 +5,14 @@
 package gymmanagementsystem.controller;
 
 import gymmanagementsystem.model.personaldata;
-import gymmanagementsystem.view.PersonalInformation;
 import gymmanagementsystem.view.DashBoardView;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
+import gymmanagementsystem.view.PersonalInformation;
 import java.awt.Image;
 import java.io.File;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Controller for Personal Information management
@@ -21,102 +21,89 @@ public class personalcontroller {
 
     private personaldata model;
     private PersonalInformation view;
+    private String username;
 
-    public personalcontroller(personaldata model, PersonalInformation view) {
-        this.model = model;
+    public personalcontroller(PersonalInformation view, String username) {
         this.view = view;
-        initializeView();
+        this.username = username;
+        this.model = new personaldata(); // Or load it from DB
+        loadAndDisplayUserData();
     }
 
-    // Initialize the view with current data
-    private void initializeView() {
-        if (model != null) {
-            view.setFullName(model.getFullName());
-            view.setEmail(model.getEmail());
-            view.setPhone(model.getPhone());
-            view.setDob(model.getDob());
-            view.setGender(model.getGender());
-            view.setAddress(model.getAddress());
-            view.setEmergencyContact(model.getEmergencyContact());
-            
-            // Set profile picture if exists
-            if (model.getProfilePicturePath() != null && !model.getProfilePicturePath().isEmpty()) {
-                view.setProfilePicture(model.getProfilePicturePath());
-            }
-        }
+    private void loadAndDisplayUserData() {
+        // In a real app, you'd load this from a database using the username.
+        // For now, we'll use the example data.
+        model.setFullName("Siddhartha Sah");
+        model.setEmail("Sidharthasah@gmail.com");
+        model.setPhone("9817811009");
+        model.setDob("2000-01-01");
+        model.setGender("Male");
+        model.setAddress("123 Main St, Anytown");
+        model.setEmergencyContact("9876543210");
+        
+        // Update the view's fields
+        view.getFullNameField().setText(model.getFullName());
+        view.getEmailField().setText(model.getEmail());
+        view.getPhoneField().setText(model.getPhone());
+        view.getDobField().setText(model.getDob());
+        view.getGenderField().setText(model.getGender());
+        view.getAddressField().setText(model.getAddress());
+        view.getEmergencyContactField().setText(model.getEmergencyContact());
+
+        // Update the display labels on the left
+        view.setDisplayName(model.getFullName());
+        view.setDisplayEmail(model.getEmail());
+        view.setDisplayPhone(model.getPhone());
     }
 
-    // Method to update personal information from the form
-    public void updatePersonalInformation() {
-        String fullName = view.getFullName();
-        String email = view.getEmail();
-        String phone = view.getPhone();
-        String dob = view.getDob();
-        String gender = view.getGender();
-        String address = view.getAddress();
-        String emergencyContact = view.getEmergencyContact();
+    public void saveInformation() {
+        // Get updated info from the view
+        String newName = view.getFullNameField().getText();
+        String newEmail = view.getEmailField().getText();
+        String newPhone = view.getPhoneField().getText();
+        String newDob = view.getDobField().getText();
+        String newGender = view.getGenderField().getText();
+        String newAddress = view.getAddressField().getText();
+        String newEmergencyContact = view.getEmergencyContactField().getText();
 
-        // Enhanced validation
-        if (fullName == null || fullName.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(view, "Full Name is required.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        // Update the model
+        model.setFullName(newName);
+        model.setEmail(newEmail);
+        model.setPhone(newPhone);
+        model.setDob(newDob);
+        model.setGender(newGender);
+        model.setAddress(newAddress);
+        model.setEmergencyContact(newEmergencyContact);
 
-        if (email == null || email.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(view, "Email is required.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Email validation
-        if (!isValidEmail(email)) {
-            JOptionPane.showMessageDialog(view, "Please enter a valid email address.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Update model
-        model.setFullName(fullName.trim());
-        model.setEmail(email.trim());
-        model.setPhone(phone != null ? phone.trim() : "");
-        model.setDob(dob != null ? dob.trim() : "");
-        model.setGender(gender != null ? gender.trim() : "");
-        model.setAddress(address != null ? address.trim() : "");
-        model.setEmergencyContact(emergencyContact != null ? emergencyContact.trim() : "");
-
-        // Save to database (you can implement this later)
+        // Here, you would call a method to save the 'model' to the database
         saveToDatabase();
-
-        // Feedback to user
-        JOptionPane.showMessageDialog(view, "Personal information updated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        
+        JOptionPane.showMessageDialog(view, "Information saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        
+        // Update the display-only labels as well
+        view.setDisplayName(newName);
+        view.setDisplayEmail(newEmail);
+        view.setDisplayPhone(newPhone);
     }
 
-    // Method to handle profile picture change
     public void changeProfilePicture() {
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "jpeg", "bmp", "gif");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "jpeg", "bmp");
         fileChooser.setFileFilter(filter);
 
         int result = fileChooser.showOpenDialog(view);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            
-            try {
-                ImageIcon profileIcon = new ImageIcon(selectedFile.getAbsolutePath());
-                
-                // Resize the image to fit the label
-                Image scaledImage = profileIcon.getImage().getScaledInstance(
-                    view.getProfileLabelWidth(), 
-                    view.getProfileLabelHeight(), 
-                    Image.SCALE_SMOOTH
-                );
-                
-                view.setProfilePicture(selectedFile.getAbsolutePath());
-                model.setProfilePicturePath(selectedFile.getAbsolutePath());
-                
-                JOptionPane.showMessageDialog(view, "Profile picture updated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(view, "Error loading image: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            String imagePath = selectedFile.getAbsolutePath();
+            model.setProfilePicturePath(imagePath);
+
+            ImageIcon profileIcon = new ImageIcon(imagePath);
+            Image scaledImage = profileIcon.getImage().getScaledInstance(
+                view.getProfilePictureLabel().getWidth(), 
+                view.getProfilePictureLabel().getHeight(), 
+                Image.SCALE_SMOOTH
+            );
+            view.getProfilePictureLabel().setIcon(new ImageIcon(scaledImage));
         }
     }
 
