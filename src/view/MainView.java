@@ -1,12 +1,12 @@
 package view;
 
 import controller.CartController;
+import controller.NotificationController;
 import controller.ProductController;
-import model.Product;
-
-import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import javax.swing.*;
+import model.Product;
 
 public class MainView extends JFrame {
     private JPanel panel;
@@ -31,8 +31,15 @@ public class MainView extends JFrame {
         viewCartBtn.setPreferredSize(new Dimension(100, 30));
         viewCartBtn.addActionListener(e -> cartController.showCartView());
 
+        JButton notifyBtn = new JButton("🔔 Send Notification");
+        notifyBtn.setPreferredSize(new Dimension(160, 30));
+        notifyBtn.addActionListener(e -> {
+            NotificationController.getInstance().showNotificationView();
+        });
+
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         topPanel.add(viewCartBtn);
+        topPanel.add(notifyBtn);
 
         add(topPanel, BorderLayout.NORTH);
         add(scroll, BorderLayout.CENTER);
