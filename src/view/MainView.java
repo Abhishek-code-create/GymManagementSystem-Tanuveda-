@@ -94,6 +94,13 @@ public class MainView extends JFrame {
         updateStreak();
         topPanel.add(checkInBtn);
         topPanel.add(streakLabel);
+
+        JButton reviewBtn = new JButton("⭐ Submit Review");
+        reviewBtn.setPreferredSize(new Dimension(140, 30));
+        reviewBtn.addActionListener(e -> {
+            new view.ReviewView("User").setVisible(true); // Replace "User" with actual username if available
+        });
+        topPanel.add(reviewBtn);
     }
 
     public void displayProducts(List<Product> products) {
