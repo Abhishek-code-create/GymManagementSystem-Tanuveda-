@@ -18,13 +18,13 @@ public class ForgotPasswordController {
     
     private void initializeListeners() {
         // Save button listener
-        view.getSaveButton().addActionListener(e -> handleSave());
+        view.getSaveButton().addActionListener(e -> handleSavePassword());
         
         // Exit button listener
         view.getExitButton().addActionListener(e -> handleExit());
     }
     
-    private void handleSave() {
+    public void handleSavePassword() {
         String username = view.getUsernameField().getText();
         String email = view.getEmailField().getText();
         String newPassword = new String(view.getNewPasswordField().getPassword());
@@ -69,7 +69,7 @@ public class ForgotPasswordController {
         }
     }
     
-    private void handleExit() {
+    public void handleExit() {
         view.dispose();
         if (loginView != null) {
             loginView.setVisible(true);

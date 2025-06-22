@@ -119,6 +119,14 @@ public class AdminUserPageView extends javax.swing.JFrame {
         });
     }
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        onAdminButtonClick();
+    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        onUserButtonClick();
+    }
+    
     // Public methods for controller to call directly (no listeners)
     public void onAdminButtonClick() {
         if (controller != null) {
