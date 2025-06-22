@@ -400,56 +400,43 @@ public class DashBoardView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        double h = Double.parseDouble(jTextField1.getText());
-        double w = Double.parseDouble(jTextField2.getText());
-        
-        double  bmi = w/(h*h);
-        
-        String cal = String .format("%.2f",bmi);
-        
-        jTextField3.setText(cal);
-        if(bmi <= 18.5)
-        {
-            jTextField3.setOpaque(true);
-            jTextField3.setBackground(Color.blue);
-            jLabel14.setForeground(Color.blue);
-            jLabel14.setText("UnderWeight");
+        try {
+            double h = Double.parseDouble(jTextField1.getText());
+            double w = Double.parseDouble(jTextField2.getText());
             
-        }
-        else if (bmi <= 24.5)
-        {
+            // Validate input values
+            if (h <= 0 || w <= 0) {
+                JOptionPane.showMessageDialog(this, "Please enter valid positive numbers for height and weight.", "Invalid Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
+            double bmi = w/(h*h);
+            
+            String cal = String.format("%.2f", bmi);
+            
+            jTextField3.setText(cal);
             jTextField3.setOpaque(true);
-            jTextField3.setBackground(Color.green);
-            jLabel14.setForeground(Color.green);
-            jLabel14.setText("NormalWeight");
+            
+            if(bmi <= 18.5) {
+                jTextField3.setBackground(Color.blue);
+                jLabel14.setForeground(Color.blue);
+                jLabel14.setText("UnderWeight");
+            } else if (bmi <= 24.5) {
+                jTextField3.setBackground(Color.green);
+                jLabel14.setForeground(Color.green);
+                jLabel14.setText("NormalWeight");
+            } else if (bmi <= 29.5) {
+                jTextField3.setBackground(Color.orange);
+                jLabel14.setForeground(Color.orange);
+                jLabel14.setText("OverWeight");
+            } else {
+                jTextField3.setBackground(Color.red);
+                jLabel14.setForeground(Color.red);
+                jLabel14.setText("Obese");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid numbers for height and weight.", "Input Error", JOptionPane.ERROR_MESSAGE);
         }
-        else if (bmi <= 24.5)
-        {
-            jTextField3.setOpaque(true);
-            jTextField3.setBackground(Color.green);
-            jLabel14.setForeground(Color.green);
-            jLabel14.setText("NormalWeight");
-        }
-        else if (bmi <= 29.5)
-        {
-            jTextField3.setOpaque(true);
-            jTextField3.setBackground(Color.orange);
-            jLabel14.setForeground(Color.orange);
-            jLabel14.setText("OverWeight");
-        }
-        else if (bmi >= 30)
-        {
-            jTextField3.setOpaque(true);
-            jTextField3.setBackground(Color.red);
-            jLabel14.setForeground(Color.red);
-            jLabel14.setText("Obese");
-        }
-        
-        
-        
-        
-        
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

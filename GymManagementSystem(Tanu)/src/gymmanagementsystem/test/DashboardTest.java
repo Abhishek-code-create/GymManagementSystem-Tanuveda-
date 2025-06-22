@@ -76,6 +76,18 @@ public class DashboardTest {
                     System.out.println("✗ DashboardModel welcome message not working correctly");
                 }
                 
+                // Test 7.5: Test Time-based Greeting
+                System.out.println("Test 7.5: Testing Time-based Greeting...");
+                String timeGreeting = dashboardModel.getTimeBasedGreeting("TestUser");
+                if (timeGreeting.contains("TestUser") && 
+                    (timeGreeting.contains("Good Morning") || 
+                     timeGreeting.contains("Good Afternoon") || 
+                     timeGreeting.contains("Good Evening"))) {
+                    System.out.println("✓ Time-based greeting working correctly: " + timeGreeting);
+                } else {
+                    System.out.println("✗ Time-based greeting not working correctly");
+                }
+                
                 // Test 8: Test Streak functionality
                 System.out.println("Test 8: Testing Streak functionality...");
                 dashboardView.updateStreakLabel(5);

@@ -66,6 +66,12 @@ public class personalcontroller {
         String newAddress = view.getAddressField().getText();
         String newEmergencyContact = view.getEmergencyContactField().getText();
 
+        // Basic validation
+        if (newName.trim().isEmpty() || newEmail.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(view, "Name and Email are required fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         // Update the model
         model.setFullName(newName);
         model.setEmail(newEmail);
