@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import model.Activity;
+import model.Attendance;
 import model.Product;
 
 public class MainView extends JFrame {
@@ -20,6 +21,8 @@ public class MainView extends JFrame {
     private JLabel monthLabel;
     private YearMonth currentMonth = YearMonth.now();
     private List<Activity> activities = new ArrayList<>();
+    private Attendance attendance = new Attendance();
+    private JLabel streakLabel;
 
     public MainView(ProductController controller) {
         this.productController = controller;
@@ -76,6 +79,21 @@ public class MainView extends JFrame {
         activities.add(new Activity(LocalDate.of(2025, 4, 10), "Yoga Class", "Morning yoga at 7am"));
         activities.add(new Activity(LocalDate.of(2025, 4, 15), "Trainer Session", "PT with Alex at 5pm"));
         updateCalendar();
+
+        streakLabel = new JLabel();
+        JButton checkInBtn = new JButton("Check in Now");
+        checkInBtn.addActionListener(e -> {
+            if (attendance.hasCheckedInToday()) {
+                JOptionPane.showMessageDialog(this, "You have already checked in today!", "Check-in", JOptionPane.WARNING_MESSAGE);
+            } else {
+                attendance.checkIn(LocalDate.now());
+                JOptionPane.showMessageDialog(this, "Check-in successful!", "Check-in", JOptionPane.INFORMATION_MESSAGE);
+                updateStreak();
+            }
+        });
+        updateStreak();
+        topPanel.add(checkInBtn);
+        topPanel.add(streakLabel);
     }
 
     public void displayProducts(List<Product> products) {
@@ -138,5 +156,10 @@ public class MainView extends JFrame {
         }
         calendarPanel.revalidate();
         calendarPanel.repaint();
+    }
+
+    private void updateStreak() {
+        int streak = attendance.getCurrentStreak();
+        streakLabel.setText("Current Streak: " + streak + " days");
     }
 }
