@@ -639,4 +639,33 @@ public class DashBoardView extends javax.swing.JFrame {
     public javax.swing.JButton getLogoutButton() {
         return jButton1;
     }
+    
+    // Getter methods for testing
+    public javax.swing.JTextField getHeightField() {
+        return jTextField1;
+    }
+    
+    public javax.swing.JTextField getWeightField() {
+        return jTextField2;
+    }
+    
+    public javax.swing.JTextField getBmiResultField() {
+        return jTextField3;
+    }
+    
+    public javax.swing.JButton getCalculateButton() {
+        return jButton2;
+    }
+    
+    public javax.swing.JButton getClearButton() {
+        return jButton3;
+    }
+    
+    public javax.swing.JLabel getStreakNumberLabel() {
+        return jLabelStreakNumber;
+    }
+    
+    public javax.swing.JLabel getWelcomeLabel() {
+        return jLabel1;
+    }
 }
