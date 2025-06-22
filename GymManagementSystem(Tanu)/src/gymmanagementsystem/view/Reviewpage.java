@@ -6,6 +6,10 @@ package gymmanagementsystem.view;
 
 import gymmanagementsystem.controller.ReviewController;
 import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
@@ -14,17 +18,60 @@ import javax.swing.JOptionPane;
 public class Reviewpage extends javax.swing.JFrame {
     
     private ReviewController controller;
+    private int rating = 0;
+    private JLabel[] starLabels;
 
     /**
      * Creates new form Reviewpage
      */
     public Reviewpage() {
         initComponents();
+        initializeStars();
         setupController();
     }
     
     private void setupController() {
         controller = new ReviewController(this);
+    }
+
+    private void initializeStars() {
+        ratingPanel.setLayout(new java.awt.GridLayout(1, 5));
+        starLabels = new JLabel[5];
+        for (int i = 0; i < 5; i++) {
+            final int index = i;
+            starLabels[i] = new JLabel("☆", javax.swing.SwingConstants.CENTER);
+            starLabels[i].setFont(new Font("Segoe UI", Font.BOLD, 36));
+            starLabels[i].setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            starLabels[i].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    updateStarsUI(index + 1);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    updateStarsUI(rating);
+                }
+
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    setRating(String.valueOf(index + 1));
+                }
+            });
+            ratingPanel.add(starLabels[i]);
+        }
+    }
+
+    private void updateStarsUI(int level) {
+        for (int i = 0; i < 5; i++) {
+            if (i < level) {
+                starLabels[i].setText("★");
+                starLabels[i].setForeground(new java.awt.Color(255, 204, 0)); // Gold color
+            } else {
+                starLabels[i].setText("☆");
+                starLabels[i].setForeground(java.awt.Color.BLACK);
+            }
+        }
     }
     
     public void setController(ReviewController controller) {
@@ -41,7 +88,7 @@ public class Reviewpage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        ratingPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
@@ -60,10 +107,7 @@ public class Reviewpage extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Write a Review");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 109, 238, 33));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setText("Rating");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 200, 158, 33));
+        getContentPane().add(ratingPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 250, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Review Title");
@@ -180,24 +224,31 @@ public class Reviewpage extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel ratingPanel;
     // End of variables declaration//GEN-END:variables
 
     // Getter and Setter methods for controller
     public String getRating() {
-        // Since there's no rating component in the form, return a default value
-        // This should be implemented with a proper rating component
-        return "5";
+        return String.valueOf(rating);
     }
 
-    public void setRating(String rating) {
-        // Since there's no rating component in the form, this is a placeholder
-        // This should be implemented with a proper rating component
+    public void setRating(String ratingStr) {
+        try {
+            this.rating = Integer.parseInt(ratingStr);
+            if (starLabels != null) {
+                updateStarsUI(this.rating);
+            }
+        } catch (NumberFormatException e) {
+            this.rating = 0;
+            if (starLabels != null) {
+                updateStarsUI(this.rating);
+            }
+        }
     }
 
     public String getReviewTitle() {
