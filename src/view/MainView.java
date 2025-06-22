@@ -4,21 +4,29 @@ import controller.CartController;
 import controller.NotificationController;
 import controller.ProductController;
 import java.awt.*;
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
+import model.Activity;
 import model.Product;
 
 public class MainView extends JFrame {
     private JPanel panel;
     private ProductController productController;
     private CartController cartController;
+    private JPanel calendarPanel;
+    private JLabel monthLabel;
+    private YearMonth currentMonth = YearMonth.now();
+    private List<Activity> activities = new ArrayList<>();
 
     public MainView(ProductController controller) {
         this.productController = controller;
         this.cartController = new CartController();
 
         setTitle("🏋️ Gym Product Purchase");
-        setSize(650, 500);
+        setSize(850, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
@@ -43,6 +51,31 @@ public class MainView extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
         add(scroll, BorderLayout.CENTER);
+
+        // Calendar panel setup
+        calendarPanel = new JPanel();
+        monthLabel = new JLabel();
+        JButton prevBtn = new JButton("<");
+        JButton nextBtn = new JButton("> ");
+        prevBtn.addActionListener(e -> {
+            currentMonth = currentMonth.minusMonths(1);
+            updateCalendar();
+        });
+        nextBtn.addActionListener(e -> {
+            currentMonth = currentMonth.plusMonths(1);
+            updateCalendar();
+        });
+        JPanel calHeader = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        calHeader.add(prevBtn);
+        calHeader.add(monthLabel);
+        calHeader.add(nextBtn);
+        add(calHeader, BorderLayout.SOUTH);
+        add(calendarPanel, BorderLayout.WEST);
+
+        // Example activities (replace with real data source)
+        activities.add(new Activity(LocalDate.of(2025, 4, 10), "Yoga Class", "Morning yoga at 7am"));
+        activities.add(new Activity(LocalDate.of(2025, 4, 15), "Trainer Session", "PT with Alex at 5pm"));
+        updateCalendar();
     }
 
     public void displayProducts(List<Product> products) {
@@ -81,5 +114,29 @@ public class MainView extends JFrame {
         }
         panel.revalidate();
         panel.repaint();
+    }
+
+    private void updateCalendar() {
+        calendarPanel.removeAll();
+        calendarPanel.setLayout(new GridLayout(0, 7));
+        monthLabel.setText(currentMonth.getMonth().toString() + " " + currentMonth.getYear());
+        String[] days = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+        for (String d : days) calendarPanel.add(new JLabel(d, SwingConstants.CENTER));
+        LocalDate first = currentMonth.atDay(1);
+        int start = first.getDayOfWeek().getValue() % 7;
+        int length = currentMonth.lengthOfMonth();
+        for (int i = 0; i < start; i++) calendarPanel.add(new JLabel(""));
+        for (int day = 1; day <= length; day++) {
+            LocalDate date = currentMonth.atDay(day);
+            JButton dayBtn = new JButton(String.valueOf(day));
+            Activity act = activities.stream().filter(a -> a.getDate().equals(date)).findFirst().orElse(null);
+            if (act != null) {
+                dayBtn.setBackground(Color.YELLOW);
+                dayBtn.setToolTipText("Activity: " + act.getTitle() + "\n" + act.getDetails());
+            }
+            calendarPanel.add(dayBtn);
+        }
+        calendarPanel.revalidate();
+        calendarPanel.repaint();
     }
 }
