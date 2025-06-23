@@ -1,3 +1,4 @@
+<<<<<<< HEAD:GymManagementSystem/GYMMANAGEMENTSYSTEM/nbproject/project.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://www.netbeans.org/ns/project/1">
     <type>org.netbeans.modules.java.j2seproject</type>
@@ -13,3 +14,5 @@
         </data>
     </configuration>
 </project>
+=======
+>>>>>>> 2883ab463e987041a6846495fe4b382d806b01f6:nbproject/project.xml

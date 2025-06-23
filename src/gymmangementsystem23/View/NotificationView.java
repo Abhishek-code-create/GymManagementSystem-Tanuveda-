@@ -41,6 +41,8 @@ public class NotificationView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 255));
+        setForeground(new java.awt.Color(102, 102, 255));
         setResizable(false);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagepicker/bell-2.png"))); // NOI18N
@@ -110,7 +112,7 @@ public class NotificationView extends javax.swing.JFrame {
             public void run() {
                 new NotificationView().setVisible(true);
             }
-        });
+        }); 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -122,10 +124,10 @@ private void showNotifications() {
     notificationPanel.setBackground(Color.WHITE);
 
     // Add sample notifications
-    notificationPanel.add(new NotificationController("Riya", "answered your comment", "1 day ago", new ImageIcon("src/icons/user1.png")));
+    notificationPanel.add(new NotificationController("Tiya", "answered your comment", "4 day ago", new ImageIcon("src/icons/user1.png")));
     notificationPanel.add(new NotificationController("Sophie", "sent you a message", "2 min ago", new ImageIcon("src/icons/user2.png")));
-    notificationPanel.add(new NotificationController("Tara", "joined your class", "4 days ago", new ImageIcon("src/icons/user3.png")));
-    notificationPanel.add(new NotificationController("Tiya", "liked your post", "2 hours ago", new ImageIcon("src/icons/user2.png")));
+    notificationPanel.add(new NotificationController("jiya", "joined your class", "5 days ago", new ImageIcon("src/icons/user3.png")));
+    notificationPanel.add(new NotificationController("Siya", "liked your post", "5 hours ago", new ImageIcon("src/icons/user2.png")));
 
     JScrollPane scrollPane = new JScrollPane(notificationPanel);
     scrollPane.setPreferredSize(new Dimension(320, 400));
@@ -146,11 +148,5 @@ private void showNotifications() {
     dialog.add(container);
     dialog.setVisible(true);
 }
-
-
-
-
-
-
 
 }

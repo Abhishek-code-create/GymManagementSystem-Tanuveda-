@@ -1,3 +1,4 @@
+<<<<<<< HEAD:GymManagementSystem/GYMMANAGEMENTSYSTEM/nbproject/build-impl.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 *** GENERATED FROM project.xml - DO NOT EDIT  ***
@@ -1769,3 +1770,5 @@ is divided into following sections:
         </ant>
     </target>
 </project>
+=======
+>>>>>>> 2883ab463e987041a6846495fe4b382d806b01f6:nbproject/build-impl.xml
