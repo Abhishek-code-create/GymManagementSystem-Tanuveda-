@@ -3,21 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/view/AdminUserPageView.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/view/UserRegisterView.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/view/AdminRegisterView.java</file>
             <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/view/Reviewpage.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/view/ForgotPasswordView.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/view/PersonalInformation.java</file>
             <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/view/DashBoardView.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/controller/DashboardController.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/controller/AdminUserPageController.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/controller/LoginSystemController.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/database/Mysqlconnection.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/database/DbConnection.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/model/AdminRegistrationModel.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/model/DashboardModel.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/controller/personalcontroller.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/test/PersonalInfoTest.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/controller/AdminRegistrationController.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/controller/ForgotPasswordController.java</file>
             <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/test/ConnectionTest.java</file>
             <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/test/ReviewTest.java</file>
-            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/tanu/GymManagementSystemTanu.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/test/DashboardTest.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/view/ForgotPasswordView.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/gymmanagementsystem/controller/AttendanceController.java</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/Yellow%20and%20Black%20Modern%20Sports%20Presentation.png</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/adminuserpage.jpg</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/dashboard_119241.png</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/dashboardbackground2.png</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/firstloginpage2%20(2).png</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/forgetpassbg.png</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/homeimg.png</file>
+            <file>file:/D:/Project_sem_2/GymManagementSystem(Tanu)/src/ImagePicker/image.png</file>
         </group>
     </open-files>
 </project-private>
