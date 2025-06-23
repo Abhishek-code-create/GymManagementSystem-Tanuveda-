@@ -2,27 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/database/MysqlConnection.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/controller/personalcontroller.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/controller/productscontroller.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/view/Orderpages.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/view/Reviewpage.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/controller/admincontroller.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/view/gymproducts.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/view/members.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/view/PersonalInformation.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/Dao/personalDao.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/Dao/AdminDao.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/view/Admin.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/model/Userdata.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/model/personaldata.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/model/productsmodel.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/table/MemberTable.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/view/reminder.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/model/memberdata.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/controller/MemberController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/TANUVEDA/GymManagementSystem/src/GymManagementSystem/Dao/MemberDao.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
